@@ -34,12 +34,11 @@ router.get('/', getDirContent, (req, res) => {
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const repo = req.params.repositoryId;
     const branch = req.params.commitHash;
-    exec(`cd ${pathToRepos}/${repo} && git checkout ${branch} && git log`, (err, stdout, stderr) => {
+    exec(`cd ${pathToRepos}/${repo} && git log ${branch} --pretty=format:'%H %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
         if (err) {
-            console.error(`exec1 error: ${err}`);
-            return res.json({ msg: 'Repo not found' });
+            return res.json({ msg: `${err}` });
         }
-        res.send(stdout);
+        res.send(stdout.split('\n'));
     });
 });
 
