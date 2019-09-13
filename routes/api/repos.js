@@ -25,7 +25,10 @@ function execute(command, cb) {
 // @desc     Возвращает массив репозиториев, которые имеются в папке
 // @access   Public
 router.get('/', getDirContent, (req, res) => {
-    res.send(res.locals.filenames);
+    // res.send(res.locals.filenames);
+    res.json({
+        repos: res.locals.filenames
+    });
 });
 
 // @route    GET /api/repos/:repositoryId/commits/:commitHash
@@ -37,7 +40,11 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
         if (err) {
             return res.json({ msg: err });
         }
-        res.send(stdout.split('\n'));
+        res.json({
+            repositoryId,
+            commitHash,
+            commits: stdout.split('\n')
+        });
     });
 });
 
@@ -50,7 +57,11 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
         if (err) {
             return res.json({ msg: err });
         }
-        res.send(stdout);
+        res.json({
+            repositoryId,
+            commitHash,
+            diff: stdout
+        });
     });
 });
 
@@ -67,7 +78,12 @@ router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
         if (err) {
             return res.json({ msg: err });
         }
-        res.send(stdout);
+        const outStr = stdout.replace(/\n/g, ', ');
+        res.json({
+            repositoryId,
+            commitHash,
+            content: outStr.slice(0, outStr.length - 2)
+        });
     });
 });
 
@@ -81,7 +97,12 @@ router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
         if (err) {
             return res.json({ msg: err });
         }
-        res.send(stdout);
+        res.json({
+            repositoryId,
+            commitHash,
+            pathToFile,
+            fileContent: stdout
+        });
     });
 });
 
