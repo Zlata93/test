@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const { exec } = require('child_process');
-const { spawn } = require('child_process');
 
 const pathToRepos = process.argv[2];
 
@@ -33,9 +32,8 @@ router.get('/', getDirContent, (req, res) => {
 // @desc     Возвращает массив коммитов в данной ветке (или хэше коммита) вместе с датами их создания
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
-    const repo = req.params.repositoryId;
-    const branch = req.params.commitHash;
-    exec(`cd ${pathToRepos}/${repo} && git log ${branch} --pretty=format:'%H %s %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
+    const { repositoryId, commitHash } = req.params;
+    exec(`cd ${pathToRepos}/${repositoryId} && git log ${commitHash} --pretty=format:'%H %s %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: err });
         }
@@ -47,9 +45,8 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
 // @desc     Возвращает diff коммита в виде строки
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
-    const repo = req.params.repositoryId;
-    const branch = req.params.commitHash;
-    exec(`cd ${pathToRepos}/${repo} && git diff ${branch} ${branch}~`, (err, stdout, stderr) => {
+    const { repositoryId, commitHash } = req.params;
+    exec(`cd ${pathToRepos}/${repositoryId} && git diff ${commitHash} ${commitHash}~`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: err });
         }
@@ -65,10 +62,8 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 // @access   Public
 // router.get('/:repositoryId(/tree)?/:commitHash?/:path([^/]*)?', (req, res) => {
 router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
-    const repo = req.params.repositoryId;
-    const branch = req.params.commitHash || 'master';
-    const pathTo = req.params.path;
-    exec(`cd ${pathToRepos}/${repo}/${pathTo ? pathTo : ''} && git ls-tree --name-only ${branch}`, (err, stdout, stderr) => {
+    const { repositoryId, commitHash = 'master', path } = req.params;
+    exec(`cd ${pathToRepos}/${repositoryId}/${path ? path : ''} && git ls-tree --name-only ${commitHash}`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: err });
         }
@@ -80,6 +75,15 @@ router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
 // @desc     Возвращает содержимое конкретного файла, находящегося по пути pathToFile в ветке
 //           (или по хэшу коммита) branchName. С используемой памятью должно быть все в порядке.
 // @access   Public
+router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
+    const { repositoryId, commitHash, pathToFile } = req.params;
+    exec(`cd ${pathToRepos}/${repositoryId} && git show ${commitHash}:${pathToFile}`, (err, stdout, stderr) => {
+        if (err) {
+            return res.json({ msg: err });
+        }
+        res.send(stdout);
+    });
+});
 
 // @route    DELETE /api/repos/:repositoryId
 // @desc     Безвозвратно удаляет репозиторий
@@ -92,19 +96,3 @@ router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
 
 module.exports = router;
 
-// const find = spawn('find', ['.', '-type', 'f']);
-// const wc = spawn('wc', ['-l']);
-//
-// find.stdout.pipe(wc.stdin);
-//
-// wc.stdout.on('data', (data) => {
-//     console.log(`Number of files ${data}`);
-// });
-// const navigate = spawn('cd', [`/home/zlata/projects/deti`]);
-// const showDiff = spawn('git', ['diff', `${branch}`]);
-//
-// navigate.stdout.pipe(showDiff.stdin);
-//
-// showDiff.stdout.on('data', (data) => {
-//     console.log(`Number of files ${data}`);
-// });
