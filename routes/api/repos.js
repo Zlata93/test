@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
-const exec = require('child_process').exec;
+const { exec } = require('child_process');
+const { spawn } = require('child_process');
 
 const pathToRepos = process.argv[2];
 
@@ -34,7 +35,7 @@ router.get('/', getDirContent, (req, res) => {
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const repo = req.params.repositoryId;
     const branch = req.params.commitHash;
-    exec(`cd ${pathToRepos}/${repo} && git log ${branch} --pretty=format:'%H %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
+    exec(`cd ${pathToRepos}/${repo} && git log ${branch} --pretty=format:'%H %s %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: `${err}` });
         }
@@ -45,6 +46,32 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
 // @route    GET /api/repos/:repositoryId/commits/:commitHash/diff
 // @desc     Возвращает diff коммита в виде строки
 // @access   Public
+router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
+    const repo = req.params.repositoryId;
+    const branch = req.params.commitHash;
+    exec(`cd ${pathToRepos}/${repo} && git diff ${branch} ${branch}~`, (err, stdout, stderr) => {
+        if (err) {
+            return res.json({ msg: `${err}` });
+        }
+        res.send(stdout);
+    });
+    // const find = spawn('find', ['.', '-type', 'f']);
+    // const wc = spawn('wc', ['-l']);
+    //
+    // find.stdout.pipe(wc.stdin);
+    //
+    // wc.stdout.on('data', (data) => {
+    //     console.log(`Number of files ${data}`);
+    // });
+    // const navigate = spawn('cd', [`/home/zlata/projects/deti`]);
+    // const showDiff = spawn('git', ['diff', `${branch}`]);
+    //
+    // navigate.stdout.pipe(showDiff.stdin);
+    //
+    // showDiff.stdout.on('data', (data) => {
+    //     console.log(`Number of files ${data}`);
+    // });
+});
 
 // @route    GET /api/repos/:repositoryId(/tree/:commitHash/:path)
 // @desc     Возвращает содержимое репозитория по названию ветки (или хэшу комита).
