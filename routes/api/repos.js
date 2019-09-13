@@ -90,7 +90,7 @@ router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
 // @access   Public
 router.delete('/:repositoryId', (req, res) => {
     const { repositoryId } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId} && rm -rf .git`, (err, stdout, stderr) => {
+    exec(`cd ${pathToRepos} && rm -rf ${repositoryId}`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: err });
         }
