@@ -88,11 +88,30 @@ router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
 // @route    DELETE /api/repos/:repositoryId
 // @desc     Безвозвратно удаляет репозиторий
 // @access   Public
+router.delete('/:repositoryId', (req, res) => {
+    const { repositoryId } = req.params;
+    exec(`cd ${pathToRepos}/${repositoryId} && rm -rf .git`, (err, stdout, stderr) => {
+        if (err) {
+            return res.json({ msg: err });
+        }
+        res.json({ msg: 'Successfully deleted!' });
+    });
+});
 
 // @route    POST /api/repos/:repositoryId + { url: ‘repo-url’ }
 // @desc     Добавляет репозиторий в список, скачивает его по переданной в теле запроса
 //           ссылке и добавляет в папку со всеми репозиториями.
 // @access   Public
+router.post('/:repositoryId', (req, res) => {
+    const { repositoryId } = req.params;
+    const { url } = req.body;
+    exec(`cd ${pathToRepos} && git clone ${url} ${repositoryId}`, (err, stdout, stderr) => {
+        if (err) {
+            return res.json({ msg: err });
+        }
+        res.json({ msg: 'Successfully added!' });
+    });
+});
 
 module.exports = router;
 
