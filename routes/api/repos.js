@@ -113,5 +113,12 @@ router.post('/:repositoryId', (req, res) => {
     });
 });
 
+// @route    GET *
+// @desc     Любой несуществующий маршрут
+// @access   Public
+router.get('*', (req, res) => {
+    res.status(404).json({ 404: 'Страница не найдена' });
+});
+
 module.exports = router;
 
