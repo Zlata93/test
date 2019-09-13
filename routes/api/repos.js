@@ -37,7 +37,7 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const branch = req.params.commitHash;
     exec(`cd ${pathToRepos}/${repo} && git log ${branch} --pretty=format:'%H %s %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
         if (err) {
-            return res.json({ msg: `${err}` });
+            return res.json({ msg: err });
         }
         res.send(stdout.split('\n'));
     });
@@ -51,26 +51,10 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
     const branch = req.params.commitHash;
     exec(`cd ${pathToRepos}/${repo} && git diff ${branch} ${branch}~`, (err, stdout, stderr) => {
         if (err) {
-            return res.json({ msg: `${err}` });
+            return res.json({ msg: err });
         }
         res.send(stdout);
     });
-    // const find = spawn('find', ['.', '-type', 'f']);
-    // const wc = spawn('wc', ['-l']);
-    //
-    // find.stdout.pipe(wc.stdin);
-    //
-    // wc.stdout.on('data', (data) => {
-    //     console.log(`Number of files ${data}`);
-    // });
-    // const navigate = spawn('cd', [`/home/zlata/projects/deti`]);
-    // const showDiff = spawn('git', ['diff', `${branch}`]);
-    //
-    // navigate.stdout.pipe(showDiff.stdin);
-    //
-    // showDiff.stdout.on('data', (data) => {
-    //     console.log(`Number of files ${data}`);
-    // });
 });
 
 // @route    GET /api/repos/:repositoryId(/tree/:commitHash/:path)
@@ -79,6 +63,18 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 //           То, что в скобках - опционально, если отсутствует и branchName, и path -
 //           отдать актуальное содержимое в корне в главной ветке репозитория.
 // @access   Public
+// router.get('/:repositoryId(/tree)?/:commitHash?/:path([^/]*)?', (req, res) => {
+router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
+    const repo = req.params.repositoryId;
+    const branch = req.params.commitHash || 'master';
+    const pathTo = req.params.path;
+    exec(`cd ${pathToRepos}/${repo}/${pathTo ? pathTo : ''} && git ls-tree --name-only ${branch}`, (err, stdout, stderr) => {
+        if (err) {
+            return res.json({ msg: err });
+        }
+        res.send(stdout);
+    });
+});
 
 // @route    GET /api/repos/:repositoryId/blob/:commitHash/:pathToFile
 // @desc     Возвращает содержимое конкретного файла, находящегося по пути pathToFile в ветке
@@ -95,3 +91,20 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 // @access   Public
 
 module.exports = router;
+
+// const find = spawn('find', ['.', '-type', 'f']);
+// const wc = spawn('wc', ['-l']);
+//
+// find.stdout.pipe(wc.stdin);
+//
+// wc.stdout.on('data', (data) => {
+//     console.log(`Number of files ${data}`);
+// });
+// const navigate = spawn('cd', [`/home/zlata/projects/deti`]);
+// const showDiff = spawn('git', ['diff', `${branch}`]);
+//
+// navigate.stdout.pipe(showDiff.stdin);
+//
+// showDiff.stdout.on('data', (data) => {
+//     console.log(`Number of files ${data}`);
+// });
