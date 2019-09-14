@@ -1,0 +1,1 @@
+module.exports = pathToRepos = process.argv[2];

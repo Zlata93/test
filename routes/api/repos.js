@@ -1,25 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
 const { exec } = require('child_process');
-
-const pathToRepos = process.argv[2];
-
-function getDirContent(req, res, next) {
-    fs.readdir(pathToRepos , (err, data) => {
-        if (err) {
-            return next(err);
-        }
-        res.locals.filenames = data;
-        next();
-    });
-}
-
-function execute(command, cb) {
-    exec(command, (error, stdout, stderr) => {
-        cb(stdout);
-    });
-}
+const getDirContent = require('../../utils/getDirContent');
+const pathToRepos = require('../../utils/pathToRepos');
 
 // @route    GET api/repos
 // @desc     Возвращает массив репозиториев, которые имеются в папке
