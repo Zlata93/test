@@ -51,7 +51,7 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 //           То, что в скобках - опционально, если отсутствует и branchName, и path -
 //           отдать актуальное содержимое в корне в главной ветке репозитория.
 // @access   Public
-router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
+router.get(['/:repositoryId/tree/:commitHash/:path([^/]*)', '/:repositoryId'], (req, res) => {
     const { repositoryId, commitHash = 'master', path } = req.params;
     createChildProcess(
         'git',
