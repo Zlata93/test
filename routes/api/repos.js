@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { exec } = require('child_process');
-const { spawn } = require('child_process');
 const getDirContent = require('../../utils/getDirContent');
 const pathToRepos = require('../../utils/pathToRepos');
+const createChildProcess = require('../../utils/createChildProcess');
 
 // @route    GET api/repos
 // @desc     Возвращает массив репозиториев, которые имеются в папке
@@ -22,22 +22,13 @@ router.get('/', getDirContent, (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const { repositoryId, commitHash } = req.params;
-    const child = spawn('git', ['log', `${commitHash}`, '--pretty=format:"%H %s %cd"', '--date=format:%Y-%m-%d %H:%M'], {
-        cwd: `${pathToRepos}/${repositoryId}`
-    });
-
-    let output = '';
-
-    child.stdout.on('data', (data) => {
-        output += data.toString();
-    });
-    child.stdout.on('end', () => {
-        res.send({
-            repositoryId,
-            commitHash,
-            commits: output.split('\n')
-        });
-    });
+    createChildProcess(
+        'git',
+        ['log', `${commitHash}`, '--pretty=format:%H %s %cd', '--date=format:%Y-%m-%d %H:%M'],
+        `${pathToRepos}/${repositoryId}`,
+        'array',
+        res
+    );
 });
 
 // @route    GET /api/repos/:repositoryId/commits/:commitHash/diff
@@ -45,23 +36,13 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
     const { repositoryId, commitHash } = req.params;
-    const child = spawn('git', ['diff', `${commitHash}`, `${commitHash}~`], {
-        cwd: `${pathToRepos}/${repositoryId}`
-    });
-
-    let output = '';
-
-    child.stdout.on('data', (data) => {
-        output += data.toString();
-    });
-
-    child.stdout.on('end', () => {
-        res.send({
-            repositoryId,
-            commitHash,
-            diff: output
-        });
-    });
+    createChildProcess(
+        'git',
+        ['diff', `${commitHash}`, `${commitHash}~`],
+        `${pathToRepos}/${repositoryId}`,
+        'string',
+        res
+    );
 });
 
 // @route    GET /api/repos/:repositoryId(/tree/:commitHash/:path)
@@ -73,23 +54,13 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 // router.get('/:repositoryId(/tree)?/:commitHash?/:path([^/]*)?', (req, res) => {
 router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
     const { repositoryId, commitHash = 'master', path } = req.params;
-    const child = spawn('git', ['ls-tree', '--name-only', `${commitHash}`], {
-        cwd: `${pathToRepos}/${repositoryId}/${path ? path : ''}`
-    });
-
-    let output = '';
-
-    child.stdout.on('data', (data) => {
-        output += data.toString();
-    });
-    child.stdout.on('end', () => {
-        const outStr = output.replace(/\n/g, ', ');
-        res.send({
-            repositoryId,
-            commitHash,
-            content: outStr
-        });
-    });
+    createChildProcess(
+        'git',
+        ['ls-tree', '--name-only', `${commitHash}`],
+        `${pathToRepos}/${repositoryId}/${path ? path : ''}`,
+        'commaString',
+        res
+    );
 });
 
 // @route    GET /api/repos/:repositoryId/blob/:commitHash/:pathToFile
@@ -98,22 +69,13 @@ router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
 // @access   Public
 router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
     const { repositoryId, commitHash, pathToFile } = req.params;
-    const child = spawn('git', ['show', '--name-only', `${commitHash}:${pathToFile}`], {
-        cwd: `${pathToRepos}/${repositoryId}`
-    });
-
-    let output = '';
-
-    child.stdout.on('data', (data) => {
-        output += data;
-    });
-    child.stdout.on('end', () => {
-        res.send({
-            repositoryId,
-            commitHash,
-            fileContent: Buffer.from(output)
-        });
-    });
+    createChildProcess(
+        'git',
+        ['show', '--name-only', `${commitHash}:${pathToFile}`],
+        `${pathToRepos}/${repositoryId}`,
+        'blob',
+        res
+    );
 });
 
 // @route    DELETE /api/repos/:repositoryId
