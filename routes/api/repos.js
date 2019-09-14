@@ -36,7 +36,7 @@ router.get('/', getDirContent, (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const { repositoryId, commitHash } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId} && git log ${commitHash} --pretty=format:'%H %s %cd' --date=format:'%Y-%m-%d %H:%M'`, (err, stdout, stderr) => {
+    exec(`cd ${pathToRepos}/${repositoryId} && git log ${commitHash} --pretty=format:"%H %s %cd" --date=format:"%Y-%m-%d %H:%M"`, (err, stdout, stderr) => {
         if (err) {
             return res.json({ msg: err });
         }
@@ -113,9 +113,13 @@ router.delete('/:repositoryId', (req, res) => {
     const { repositoryId } = req.params;
     exec(`cd ${pathToRepos} && rm -rf ${repositoryId}`, (err, stdout, stderr) => {
         if (err) {
-            return res.json({ msg: err });
+            exec(`cd ${pathToRepos} && rmdir /s /q ${repositoryId}`, (err, stdout, stderr) => {
+                if (err) {
+                    return res.json({ msg: err });
+                }
+                res.json({ msg: 'Successfully deleted!' });
+            });
         }
-        res.json({ msg: 'Successfully deleted!' });
     });
 });
 
@@ -138,7 +142,7 @@ router.post('/:repositoryId', (req, res) => {
 // @desc     Любой несуществующий маршрут
 // @access   Public
 router.get('*', (req, res) => {
-    res.status(404).json({ 404: 'Страница не найдена' });
+    res.status(404).json({ err: ' 404: Страница не найдена' });
 });
 
 module.exports = router;
