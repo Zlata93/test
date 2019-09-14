@@ -22,12 +22,16 @@ router.get('/', getDirContent, (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const { repositoryId, commitHash } = req.params;
+    const { page, limit } = req.query;
+
     createChildProcess(
         'git',
         ['log', `${commitHash}`, '--pretty=format:%H %s %cd', '--date=format:%Y-%m-%d %H:%M'],
         `${pathToRepos}/${repositoryId}`,
         'array',
-        res
+        res,
+        page && parseInt(page, 10),
+        limit && parseInt(limit, 10)
     );
 });
 

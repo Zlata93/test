@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-function createChildProcess(command, options, cwd, outputType, res) {
+function createChildProcess(command, options, cwd, outputType, res, page, limit) {
     const child = spawn(command, [...options], { cwd });
 
     let output = '';
@@ -29,6 +29,10 @@ function createChildProcess(command, options, cwd, outputType, res) {
                     const outStr = output.replace(/\n/g, ', ');
                     output = outStr.slice(0, outStr.length - 2);
                     break;
+            }
+            if (page && limit && Array.isArray(output)) {
+                const skip = (page - 1) * limit;
+                output = output.slice(skip, skip+limit);
             }
             res.send({
                 output
