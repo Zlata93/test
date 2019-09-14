@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { exec } = require('child_process');
+const { spawn } = require('child_process');
 const getDirContent = require('../../utils/getDirContent');
 const pathToRepos = require('../../utils/pathToRepos');
 
@@ -8,9 +9,11 @@ const pathToRepos = require('../../utils/pathToRepos');
 // @desc     Возвращает массив репозиториев, которые имеются в папке
 // @access   Public
 router.get('/', getDirContent, (req, res) => {
-    // res.send(res.locals.filenames);
-    res.json({
-        repos: res.locals.filenames
+    if (res.locals.err) {
+        return res.send({ error: res.locals.err });
+    }
+    res.send({
+        repos: res.locals.files
     });
 });
 
@@ -19,14 +22,20 @@ router.get('/', getDirContent, (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash', (req, res) => {
     const { repositoryId, commitHash } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId} && git log ${commitHash} --pretty=format:"%H %s %cd" --date=format:"%Y-%m-%d %H:%M"`, (err, stdout, stderr) => {
-        if (err) {
-            return res.json({ msg: err });
-        }
-        res.json({
+    const child = spawn('git', ['log', `${commitHash}`, '--pretty=format:"%H %s %cd"', '--date=format:%Y-%m-%d %H:%M'], {
+        cwd: `${pathToRepos}/${repositoryId}`
+    });
+
+    let output = '';
+
+    child.stdout.on('data', (data) => {
+        output += data.toString();
+    });
+    child.stdout.on('end', () => {
+        res.send({
             repositoryId,
             commitHash,
-            commits: stdout.split('\n')
+            commits: output.split('\n')
         });
     });
 });
@@ -36,14 +45,21 @@ router.get('/:repositoryId/commits/:commitHash', (req, res) => {
 // @access   Public
 router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
     const { repositoryId, commitHash } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId} && git diff ${commitHash} ${commitHash}~`, (err, stdout, stderr) => {
-        if (err) {
-            return res.json({ msg: err });
-        }
-        res.json({
+    const child = spawn('git', ['diff', `${commitHash}`, `${commitHash}~`], {
+        cwd: `${pathToRepos}/${repositoryId}`
+    });
+
+    let output = '';
+
+    child.stdout.on('data', (data) => {
+        output += data.toString();
+    });
+
+    child.stdout.on('end', () => {
+        res.send({
             repositoryId,
             commitHash,
-            diff: stdout
+            diff: output
         });
     });
 });
@@ -57,15 +73,21 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 // router.get('/:repositoryId(/tree)?/:commitHash?/:path([^/]*)?', (req, res) => {
 router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
     const { repositoryId, commitHash = 'master', path } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId}/${path ? path : ''} && git ls-tree --name-only ${commitHash}`, (err, stdout, stderr) => {
-        if (err) {
-            return res.json({ msg: err });
-        }
-        const outStr = stdout.replace(/\n/g, ', ');
-        res.json({
+    const child = spawn('git', ['ls-tree', '--name-only', `${commitHash}`], {
+        cwd: `${pathToRepos}/${repositoryId}/${path ? path : ''}`
+    });
+
+    let output = '';
+
+    child.stdout.on('data', (data) => {
+        output += data.toString();
+    });
+    child.stdout.on('end', () => {
+        const outStr = output.replace(/\n/g, ', ');
+        res.send({
             repositoryId,
             commitHash,
-            content: outStr.slice(0, outStr.length - 2)
+            content: outStr
         });
     });
 });
@@ -76,15 +98,20 @@ router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
 // @access   Public
 router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
     const { repositoryId, commitHash, pathToFile } = req.params;
-    exec(`cd ${pathToRepos}/${repositoryId} && git show ${commitHash}:${pathToFile}`, (err, stdout, stderr) => {
-        if (err) {
-            return res.json({ msg: err });
-        }
-        res.json({
+    const child = spawn('git', ['show', '--name-only', `${commitHash}:${pathToFile}`], {
+        cwd: `${pathToRepos}/${repositoryId}`
+    });
+
+    let output = '';
+
+    child.stdout.on('data', (data) => {
+        output += data;
+    });
+    child.stdout.on('end', () => {
+        res.send({
             repositoryId,
             commitHash,
-            pathToFile,
-            fileContent: stdout
+            fileContent: Buffer.from(output)
         });
     });
 });
@@ -100,7 +127,7 @@ router.delete('/:repositoryId', (req, res) => {
                 if (err) {
                     return res.json({ msg: err });
                 }
-                res.json({ msg: 'Successfully deleted!' });
+                res.send({ msg: 'Successfully deleted!' });
             });
         }
     });
@@ -117,15 +144,8 @@ router.post('/:repositoryId', (req, res) => {
         if (err) {
             return res.json({ msg: err });
         }
-        res.json({ msg: 'Successfully added!' });
+        res.send({ msg: 'Successfully added!' });
     });
-});
-
-// @route    GET *
-// @desc     Любой несуществующий маршрут
-// @access   Public
-router.get('*', (req, res) => {
-    res.status(404).json({ err: ' 404: Страница не найдена' });
 });
 
 module.exports = router;

@@ -8,6 +8,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/api/repos', require('./routes/api/repos'));
 
-app.get('/', (req, res) => res.send('Hello World!'));
+// @route    GET *
+// @desc     Любой несуществующий маршрут
+// @access   Public
+app.get('*', (req, res) => res.status(404).json({ err: ' 404: Страница не найдена' }));
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
