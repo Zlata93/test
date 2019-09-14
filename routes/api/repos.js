@@ -51,7 +51,6 @@ router.get('/:repositoryId/commits/:commitHash/diff', (req, res) => {
 //           То, что в скобках - опционально, если отсутствует и branchName, и path -
 //           отдать актуальное содержимое в корне в главной ветке репозитория.
 // @access   Public
-// router.get('/:repositoryId(/tree)?/:commitHash?/:path([^/]*)?', (req, res) => {
 router.get('/:repositoryId/tree?/:commitHash?/:path([^/]*)?', (req, res) => {
     const { repositoryId, commitHash = 'master', path } = req.params;
     createChildProcess(
@@ -85,9 +84,9 @@ router.delete('/:repositoryId', (req, res) => {
     const { repositoryId } = req.params;
     exec(`cd ${pathToRepos} && rm -rf ${repositoryId}`, (err, stdout, stderr) => {
         if (err) {
-            exec(`cd ${pathToRepos} && rmdir /s /q ${repositoryId}`, (err, stdout, stderr) => {
-                if (err) {
-                    return res.json({ msg: err });
+            exec(`cd ${pathToRepos} && rmdir /s /q ${repositoryId}`, (error, stdout, stderr) => {
+                if (error) {
+                    return res.send({ error });
                 }
                 res.send({ msg: 'Successfully deleted!' });
             });
@@ -102,9 +101,9 @@ router.delete('/:repositoryId', (req, res) => {
 router.post('/:repositoryId', (req, res) => {
     const { repositoryId } = req.params;
     const { url } = req.body;
-    exec(`cd ${pathToRepos} && git clone ${url} ${repositoryId}`, (err, stdout, stderr) => {
-        if (err) {
-            return res.json({ msg: err });
+    exec(`cd ${pathToRepos} && git clone ${url} ${repositoryId}`, (error, stdout, stderr) => {
+        if (error) {
+            return res.send({ error });
         }
         res.send({ msg: 'Successfully added!' });
     });

@@ -11,6 +11,6 @@ app.use('/api/repos', require('./routes/api/repos'));
 // @route    GET *
 // @desc     Любой несуществующий маршрут
 // @access   Public
-app.get('*', (req, res) => res.status(404).json({ err: ' 404: Страница не найдена' }));
+app.get('*', (req, res) => res.status(404).json({ error: ' 404: Страница не найдена' }));
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
