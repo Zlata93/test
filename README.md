@@ -4,6 +4,7 @@ Node server that exposes API to work with git repository
 
 ## Как запустить
 - node server.js <path/to/repos>
+
   путь до папки с репозиториями передается как аргумент командной строки
 
 ## Поддерживаемые запросы
