@@ -14,7 +14,7 @@ API состоит из следующих HTTP-запросов:
 
   Возвращает массив репозиториев, которые имеются в папке.
   
-- GET /api/repos/:repositoryId/commits/:commitHash(/?page=[Number]&limit=[munber])
+- GET /api/repos/:repositoryId/commits/:commitHash(/?page=[Number]&limit=[Number])
 
   Возвращает массив коммитов в данной ветке (или хэше коммита) вместе с датами их создания и названием. Поддерживает пагинацию.
   
