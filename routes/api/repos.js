@@ -74,7 +74,7 @@ router.get('/:repositoryId/blob/:commitHash/:pathToFile([^/]*)', (req, res) => {
     const { repositoryId, commitHash, pathToFile } = req.params;
     createChildProcess(
         'git',
-        ['show', '--name-only', `${commitHash}:${pathToFile}`],
+        ['show', `${commitHash}~:${pathToFile}`],
         `${pathToRepos}/${repositoryId}`,
         'blob',
         res
