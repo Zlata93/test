@@ -1,5 +1,18 @@
 const { spawn } = require('child_process');
 
+/**
+ * Создает дочерний процесс, используя spawn
+ *
+ * @param  {string} command - команда
+ * @param  {array} options - опции
+ * @param  {string} cwd - директория исполнения
+ * @param  {string} outputType - тип данных ответа
+ * @param  {object} res - http response
+ * @param  {string} [page] - страницы для пагинации
+ * @param  {string} [limit] - количество позиций на странице
+ * @return {undefined} - функция ничего не возвращает
+ *
+ */
 function createChildProcess(command, options, cwd, outputType, res, page, limit) {
     const child = spawn(command, [...options], { cwd });
 
