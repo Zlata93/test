@@ -1,0 +1,28 @@
+.Header {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #F0F2F3;
+  box-sizing: border-box;
+  padding: 16px 32px 20px;
+  font-family: arial, sans-serif;
+  align-items: flex-end;
+
+  &-Logo {
+    margin-right: 40px;
+  }
+
+  &-Select {
+    position: relative;
+
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      bottom: -21px;
+      left: 0;
+      right: 0;
+      height: 0.5em;
+      border-bottom: 3px solid #FF4F49;
+    }
+  }
+}

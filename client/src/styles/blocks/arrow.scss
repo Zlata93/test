@@ -1,0 +1,16 @@
+.Arrow {
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 0.125rem solid;
+  border-bottom: 0;
+  border-left: 0;
+  border-radius: 1px;
+  text-indent: -624.9375rem;
+  display: inline-block;
+
+  &_state {
+    &_down {
+      transform: rotate(135deg);
+    }
+  }
+}

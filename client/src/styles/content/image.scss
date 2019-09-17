@@ -1,0 +1,8 @@
+.image {
+  // Растягивается на всю ширину, имеет границу и содержит заглушку.
+  width: 100%;
+  border: 3px solid var(--border);
+  background-image: var(--image);
+  background-repeat: no-repeat;
+  background-position: center;
+}

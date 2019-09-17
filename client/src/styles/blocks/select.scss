@@ -1,0 +1,14 @@
+.Select {
+  font-size: 14px;
+  line-height: 18px;
+
+  &-Name {
+    font-weight: bold;
+  }
+
+  &-Arrow {
+    position: absolute;
+    right: -15px;
+    top: 6px;
+  }
+}

@@ -1,0 +1,23 @@
+// Контейнер для отделения группы блоков
+.section {
+
+  &_indent-b {
+    &_xxl {
+      margin-bottom: var(--space-xxl);
+    }
+
+    &_xxxxl {
+      margin-bottom: var(--space-xxxxl);
+    }
+  }
+
+  &_space-v {
+    &_xxl {
+      padding: var(--space-xxl) 0;
+    }
+
+    &_xxxxl {
+      padding: var(--space-xxxxl) 0;
+    }
+  }
+}
