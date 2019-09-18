@@ -1,0 +1,27 @@
+.BranchNav {
+  font-family: var(--font);
+  padding: var(--space-s) 0 var(--space-xs);
+  border-bottom: 1px solid var(--border-faded);
+
+  &-Header {
+    font-size: var(--font-l);
+    line-height: var(--line-l);
+    display: flex;
+  }
+  &-Name {
+    color: var(--primary);
+    font-weight: bold;
+    margin-right: var(--space-xxs);
+    letter-spacing: -.3px;
+  }
+  &-Select {}
+  &-Info {
+    font-size: var(--font-s);
+    line-height: var(--line-m);
+    color: var(--primary);
+    margin: var(--space-xxs) 0 var(--space-m);
+  }
+  &-Tabs {
+
+  }
+}

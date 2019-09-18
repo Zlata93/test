@@ -1,0 +1,31 @@
+.Tabs {
+  display: flex;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-m);
+  line-height: var(--line-m);
+  letter-spacing: -.4px;
+
+  &-Item {
+    margin-right: var(--space-xxl);
+    color: var(--secondary);
+
+    &_state {
+      &_active {
+        color: var(--primary);
+        position: relative;
+
+        &:after {
+          content: '';
+          width: 100%;
+          position: absolute;
+          bottom: -12px;
+          left: 0;
+          right: 0;
+          height: 0.5em;
+          border-bottom: 2px solid var(--border);
+        }
+      }
+    }
+  }
+}

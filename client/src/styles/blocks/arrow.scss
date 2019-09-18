@@ -13,4 +13,9 @@
       transform: rotate(135deg);
     }
   }
+  &_color {
+    &_secondary {
+      color: var(--secondary);
+    }
+  }
 }
