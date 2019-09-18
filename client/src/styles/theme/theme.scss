@@ -1,113 +1,60 @@
-// Значения бех указания темы совпадают с .theme_color_project-default
-//body {
-//  background: grey;
-//}
-:root {
-  // Для всех элементов на странице свойство box-sizing имеет значение border-box
-  *, *:before, *:after {
-    box-sizing: border-box;
-  }
-
-  --default: #fff;
-  --accented: #0056b3;
-  --border: #000;
-
-  // Значения состояний текста:
-  --primary: #000;
-  --secondary: rgba(0, 0, 0, 0.6);
-  --ghost: rgba(0, 0, 0, 0.3);
-  --link:  #0070f0;
-}
-
 .theme_color_project-default {
   // Значения фонов блоков:
   --default: #fff;
-  --accented: #0056b3;
-  --border: #000;
+  --plain: #e6e6e6;
+  --accented: #ff3029;
+  --border: #ff4f49;
+  --border-ghost: #f0f2f3;
+  --border-faded: #e5e5e5;
+  --background-ghost: #f1f8ff;
+  --inverse: #4f4f4f;
 
   // Значения состояний текста:
   --primary: #000;
-  --secondary: rgba(0, 0, 0, 0.6);
-  --ghost: rgba(0, 0, 0, 0.3);
-  --link:  #0070f0;
+  --secondary: #7f8285;
+  --secondary-text: #434445;
+  --tertiary: #8694a2;
+  --ghost: #b8bec3;
+  --link-1:  #177ffd;
+  --link-2:  #1774e9;
+  --success: #19bc4d;
 
-  --image: url('../images/image-placeholder-inverse.svg');
+  --editor-link: #005fba;
+  --editor-primary: #00234b;
+  --editor-comment: #9ea9b4;
+
+  --diff-reserved: #0433ff;
+  --diff-accented: #b4261a;
+  --diff-comment: #008f00;
+  --added-backgound: #e6ffed;
+  --deleted-background: #ffeef0;
+
+  --branch: #ff5668;
+
+
+  --line: #f0f2f3;
+  --line-darker: #e5e5e5;
+
+  //--image: url('../images/image-placeholder-inverse.svg');
 }
 
-.theme_color_project-brand {
-  // Значения фонов блоков:
-  --default: #0070f0;
-  --accented: #fff;
-  --border: #fff;
-
-  // Значения состояний текста:
-  --primary: #fff;
-  --secondary: rgba(255, 255, 255, 0.6);
-  --ghost: rgba(255, 255, 255, 0.3);
-  --link:  #fff;
-
-  --image: url('../images/image-placeholder-inverse.svg');
-}
-
-.theme_color_project-inverse {
-  // Значения фонов блоков:
-  --default: #000;
-  --accented: #fff;
-  --border: #fff;
-
-  // Значения состояний текста:
-  --primary: #fff;
-  --secondary: rgba(255, 255, 255, 0.6);
-  --ghost: rgba(255, 255, 255, 0.3);
-  --link:  #0070f0;
-
-  --image: url('../images/image-placeholder-primary.svg');
-}
-
-.theme_color_project-warning {
-  // Значения фонов блоков:
-  --default: #ff9900;
-  --accented: #fff;
-  --border: #fff;
-
-  // Значения состояний текста:
-  --primary: #fff;
-  --secondary: rgba(255, 255, 255, 0.6);
-  --ghost: rgba(255, 255, 255, 0.3);
-  --link:  #fff;
-
-  --image: url('../images/image-placeholder-inverse.svg');
-}
-
-.theme_color_megafon-brand {
-  // Значения фонов блоков:
-  --default: #1fa55d;
-  --accented: #fff;
-  --border: #fff;
-
-  // Значения состояний текста:
-  --primary: #fff;
-  --secondary: rgba(255, 255, 255, 0.6);
-  --ghost: rgba(255, 255, 255, 0.3);
-  --link:  #fff;
-
-  --image: url('../images/image-placeholder-inverse.svg');
+.theme_font_default {
+  --font: arial, sans-serif;
 }
 
 .theme_size_default {
   // Значения размеров высоты текста (так как в задании текст в виде линий):
-  --height-s: 7px;
-  --height-m: 8px;
-  --height-l: 10px;
-  --height-xl: 11px;
-  --height-xxl: 13px;
+  --font-xs: 12px;
+  --font-xxs: 13px;
+  --font-s: 14px;
+  --font-m: 16px;
+  --font-l: 24px;
 
   // Значения межстрочных интервалов:
+  --line-xs: 15px;
   --line-s: 18px;
-  --line-m: 21px;
-  --line-l: 25px;
-  --line-xl: 28px;
-  --line-xxl: 34px;
+  --line-m: 20px;
+  --line-l: 28px;
 }
 
 .theme_space_default {

@@ -1,6 +1,6 @@
 .Select {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: var(--font-s);
+  position: relative;
 
   &-Name {
     font-weight: bold;
@@ -8,7 +8,28 @@
 
   &-Arrow {
     position: absolute;
-    right: -15px;
-    top: 6px;
+
+    &_position {
+      &_center {
+        right: -15px;
+        top: 6px;
+      }
+      &_baseline {
+
+      }
+    }
+
   }
+
+  &_size {
+    &_small {
+      font-size: var(--font-s);
+      line-height: var(--line-s);
+      letter-spacing: -.3px;
+    }
+    &_big {
+
+    }
+  }
+
 }

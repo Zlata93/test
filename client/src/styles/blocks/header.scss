@@ -1,28 +1,28 @@
 .Header {
   width: 100%;
   display: flex;
-  border-bottom: 1px solid #F0F2F3;
+  border-bottom: 1px solid var(--border-ghost);
   box-sizing: border-box;
-  padding: 16px 32px 20px;
-  font-family: arial, sans-serif;
+  //padding: var(--space-m) var(--space-xxl) var(--space-l);
+  padding: var(--space-m) var(--space-xxl) 18px;
+  font-family: var(--font);
   align-items: flex-end;
 
   &-Logo {
-    margin-right: 40px;
+    margin-right: var(--space-xxxl);
   }
 
   &-Select {
-    position: relative;
 
     &:after {
       content: '';
       width: 100%;
       position: absolute;
-      bottom: -21px;
+      bottom: -19px;
       left: 0;
       right: 0;
       height: 0.5em;
-      border-bottom: 3px solid #FF4F49;
+      border-bottom: 2px solid var(--border);
     }
   }
 }

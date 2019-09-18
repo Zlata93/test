@@ -1,7 +1,8 @@
-.layout {
+.Layout {
   margin: 0;
   background: var(--default);
-  &__container {
+  &-Container {
+    margin: 0 var(--space-xxl);
 
     &_align_center {
       margin: 0 auto;
