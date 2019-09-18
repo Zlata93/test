@@ -1,8 +1,14 @@
 .Layout {
   margin: 0;
   background: var(--default);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   &-Container {
     margin: 0 var(--space-xxl);
+    flex: 1 0 auto;
 
     @media screen and (max-width: 600px) {
       margin: 0 var(--space-m);
