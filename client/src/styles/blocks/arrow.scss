@@ -12,10 +12,27 @@
     &_down {
       transform: rotate(135deg);
     }
+    &_right {
+      transform: rotate(45deg);
+    }
   }
   &_color {
     &_secondary {
       color: var(--secondary);
+    }
+    &_faded {
+      color: var(--border-faded);
+    }
+  }
+  &_size {
+    &_s {
+      width: 0.3rem;
+      height: 0.3rem;
+    }
+    &_m {
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 1px;
     }
   }
 }

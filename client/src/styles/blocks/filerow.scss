@@ -1,0 +1,36 @@
+.FileRow {
+  display: none;
+  flex-direction: column;
+  position: relative;
+  color: var(--primary);
+  font-family: var(--font);
+  font-size: var(--font-s);
+  line-height: var(--line-m);
+  padding: var(--space-s) 0;
+  border-bottom: 1px solid var(--border-faded);
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+  }
+
+  &-Item {
+    padding: var(--space-xxxs) 0;
+
+    &_position {
+      &_middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &-Message {
+    margin-right: var(--space-xs);
+  }
+
+  &-Arrow {
+    position: absolute;
+    right: 0;
+  }
+}
