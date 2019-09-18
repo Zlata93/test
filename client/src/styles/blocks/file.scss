@@ -1,0 +1,33 @@
+.File {
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+
+  &_type {
+    &_dir {
+      font-weight: bold;
+    }
+    &_file {
+    }
+  }
+
+  &-Icon {
+    width: 12px;
+    height: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-right: var(--space-xxs);
+
+    &_type {
+      &_dir {
+        background-image: url('../images/folder.png');
+      }
+      &_readme {
+        background-image: url('../images/file_1.png');
+      }
+      &_file {
+        background-image: url('../images/file_2.png');
+      }
+    }
+  }
+}
