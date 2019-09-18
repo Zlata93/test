@@ -8,6 +8,10 @@
   font-family: var(--font);
   align-items: flex-end;
 
+  @media screen and (max-width: 600px) {
+    padding: var(--space-m) var(--space-m) 18px;
+  }
+
   &-Logo {
     margin-right: var(--space-xxxl);
   }
