@@ -12,7 +12,7 @@
   }
 
   &-Head {
-
+    font-weight: normal;
   }
 
   &-Body {
@@ -27,6 +27,7 @@
     //padding: 15px 0 var(--space-s);
     padding: var(--space-m) 0 var(--space-s);
     text-align: left;
+    font-weight: normal;
     //width: 16%;
 
     &:nth-of-type(1) {

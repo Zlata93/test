@@ -4,7 +4,7 @@
   align-items: center;
 
   &_type {
-    &_dir {
+    &_dir, &_branch {
       font-weight: bold;
     }
     &_file {
@@ -27,6 +27,9 @@
       }
       &_file {
         background-image: url('../images/file_2.svg');
+      }
+      &_branch {
+        background-image: url('../images/branch.svg');
       }
     }
   }
