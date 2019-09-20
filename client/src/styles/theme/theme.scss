@@ -24,6 +24,8 @@
   --editor-primary: #00234b;
   --editor-comment: #9ea9b4;
   --editor-header: #f5f5f5;
+  --editor-number: #c7c7c7;
+  --editor-main: #00234b;
 
   --diff-reserved: #0433ff;
   --diff-accented: #b4261a;
@@ -42,12 +44,13 @@
 
 .theme_font_default {
   --font: arial, sans-serif;
+  --editor-font: 'PT Mono', sans-serif;
 }
 
 .theme_size_default {
   // Значения размеров высоты текста (так как в задании текст в виде линий):
-  --font-xs: 12px;
-  --font-xxs: 13px;
+  --font-xxs: 12px;
+  --font-xs: 13px;
   --font-s: 14px;
   --font-m: 16px;
   --font-l: 24px;
@@ -74,6 +77,10 @@
   --space-xxxl: 40px;
   --space-xxxxl: 48px;
   --space-xxxxxl: 72px;
+
+  --space-1x: 30px;
+  --space-2x: 60px;
+  --space-3x: 90px;
 }
 
 .theme_gap_small {

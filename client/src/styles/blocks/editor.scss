@@ -1,4 +1,12 @@
 .Editor {
+  border: 1px solid var(--border-faded);
+  border-radius: 4px;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    border: none;
+  }
+
   &-Header {
     padding: var(--space-xxs) var(--space-m) 6px;
     display: flex;
@@ -7,6 +15,24 @@
     font-size: var(--font-s);
     line-height: var(--line-m);
     background: var(--editor-header);
+    border-radius: 4px;
+
+    @media screen and (max-width: 600px) {
+      border-radius: 0;
+      padding: var(--space-xxs) 0 6px;
+    }
+  }
+
+  &-HeaderBackground {
+    position: absolute;
+    height: 42px;
+    z-index: -1;
+
+    @media screen and (max-width: 600px) {
+      width: 600px;
+      background: var(--editor-header);
+      margin-left: -30px;
+    }
   }
 
   &-HeaderItem {
@@ -30,5 +56,65 @@
     background-image: url('../images/download.svg');
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  &-Body {
+    box-sizing: border-box;
+    //padding: 0 var(--space-xl);
+    font-family: var(--editor-font);
+    font-size: var(--font-xxs);
+    line-height: var(--line-m);
+    margin-top: var(--space-xxxxs);
+    color: var(--editor-main);
+  }
+
+  &-Row {
+  }
+
+  &-Number {
+    width: 70px;
+    min-width: 18px;
+    text-align: center;
+    color: var(--editor-number);
+    padding: 0;
+
+    @media screen and (max-width: 600px) {
+      text-align: left;
+    }
+  }
+  &-Line {
+    overflow: visible;
+    //word-wrap: normal;
+    text-align: left;
+    padding: 0;
+  }
+
+  &-Item {
+    &_color {
+      &_link {
+        color: var(--editor-link);
+      }
+      &_comment {
+        color: var(--tertiary);
+      }
+    }
+
+    &_weight {
+      &_bold {
+        font-weight: bold;
+      }
+    }
+
+    &_indent-l {
+      &_1x {
+        margin-left: var(--space-1x);
+      }
+      &_2x {
+        margin-left: var(--space-2x);
+      }
+      &_3x {
+        margin-left: var(--space-3x);
+      }
+    }
   }
 }

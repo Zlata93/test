@@ -20,6 +20,15 @@
     }
   }
 
+  &_indent-b {
+    &_m {
+      margin-bottom: var(--space-m);
+    }
+    &_xxxxs {
+      margin-bottom: var(--space-xxxs);
+    }
+  }
+
   &_space-v {
     &_xxl {
       padding: var(--space-xxl) 0;
