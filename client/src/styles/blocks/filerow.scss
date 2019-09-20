@@ -1,23 +1,43 @@
 .FileRow {
-  display: none;
+  display: flex;
   flex-direction: column;
   position: relative;
   color: var(--primary);
   font-family: var(--font);
   font-size: var(--font-s);
   line-height: var(--line-m);
-  padding: var(--space-s) 0;
-  border-bottom: 1px solid var(--border-faded);
 
-  @media screen and (max-width: 600px) {
-    display: flex;
+  &_border {
+    &_bottom {
+      border-bottom: 1px solid var(--border-faded);
+    }
+  }
+
+  &_padding {
+    &_both {
+      padding: var(--space-s) 0;
+    }
+  }
+
+  &_hide {
+    &_desktop {
+      display: none;
+      @media screen and (max-width: 600px) {
+        display: flex;
+      }
+    }
   }
 
   &-Item {
-    padding: var(--space-xxxs) 0;
 
-    &_position {
-      &_middle {
+    &_padding {
+      &_both {
+        padding: var(--space-xxxs) 0;
+      }
+    }
+
+    &_display {
+      &_flex {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -33,5 +53,9 @@
     position: absolute;
     top: 45%;
     right: 0;
+  }
+
+  &-Title {
+    font-weight: bold;
   }
 }

@@ -1,4 +1,13 @@
 .Link {
   color: var(--link-2);
   text-decoration: none;
+  font-weight: normal;
+
+  &_hide {
+    &_touch {
+      @media screen and (max-width: 600px) {
+        visibility: hidden;
+      }
+    }
+  }
 }

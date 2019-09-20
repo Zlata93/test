@@ -1,0 +1,9 @@
+.Text {
+
+  &_size {
+    &_xs {
+      font-size: var(--font-xs);
+      line-height: var(--line-s);
+    }
+  }
+}

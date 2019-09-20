@@ -1,7 +1,5 @@
 .User {
   display: inline-block;
-  font-size: var(--font-s);
-  line-height: var(--line-m);
   color: var(--primary);
 
   &::first-letter {
