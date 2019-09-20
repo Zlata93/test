@@ -5,16 +5,9 @@
 
 @import 'content/button';
 @import 'content/image';
-@import 'content/input';
-@import 'content/placeholder';
 
-@import 'patterns/card';
-@import 'patterns/form';
-@import 'patterns/icon-plus';
-@import 'patterns/informer';
-@import 'patterns/list';
+@import 'patterns/filerow';
 @import 'patterns/section';
-@import 'patterns/e-accordion';
 
 @import 'content/arrow';
 @import 'content/file';
@@ -24,7 +17,7 @@
 @import 'content/user';
 
 @import 'blocks/branchnav';
-@import 'blocks/filerow';
+@import 'blocks/editor';
 @import 'blocks/footer';
 @import 'blocks/header';
 @import 'blocks/history';

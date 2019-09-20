@@ -1,5 +1,5 @@
 // Контейнер для отделения группы блоков
-.section {
+.Section {
 
   &_indent-b {
     &_xxl {
@@ -8,6 +8,15 @@
 
     &_xxxxl {
       margin-bottom: var(--space-xxxxl);
+    }
+  }
+
+  &_indent-t {
+    &_m {
+      margin-top: var(--space-m);
+    }
+    &_xxxxs {
+      margin-top: var(--space-xxxs);
     }
   }
 

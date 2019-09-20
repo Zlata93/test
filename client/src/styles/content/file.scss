@@ -1,6 +1,6 @@
 .File {
   color: var(--primary);
-  display: flex;
+  display: inline-flex;
   align-items: center;
 
   &_type {
@@ -8,6 +8,12 @@
       font-weight: bold;
     }
     &_file {
+    }
+  }
+
+  &_weight {
+    &_bold {
+      font-weight: bold;
     }
   }
 
@@ -30,6 +36,9 @@
       }
       &_branch {
         background-image: url('../images/branch.svg');
+      }
+      &_code {
+        background-image: url('../images/code_file.svg');
       }
     }
   }

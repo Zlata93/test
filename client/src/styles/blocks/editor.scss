@@ -1,0 +1,34 @@
+.Editor {
+  &-Header {
+    padding: var(--space-xxs) var(--space-m) 6px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font);
+    font-size: var(--font-s);
+    line-height: var(--line-m);
+    background: var(--editor-header);
+  }
+
+  &-HeaderItem {
+    display: flex;
+    align-items: center;
+  }
+
+  &-ByteCount {
+    color: var(--faded);
+    font-size: var(--font-xs);
+    line-height: var(--line-m);
+    margin-left: var(--space-xxxs);
+  }
+
+  &-Action {
+    width: 38px;
+    height: 28px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-image: url('../images/download.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
