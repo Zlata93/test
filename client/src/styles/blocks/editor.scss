@@ -98,12 +98,30 @@
 
   &-Body {
     box-sizing: border-box;
+    width: 100%;
     //padding: 0 var(--space-xl);
     font-family: var(--editor-font);
     font-size: var(--font-xxs);
     line-height: var(--line-m);
     margin-top: var(--space-xxxxs);
-    color: var(--editor-main);
+
+    &_border {
+      &_collapse {
+        border-collapse: collapse;
+
+        & .Editor-Number {
+          @media screen and (max-width: 600px) {
+            width: 27px;
+          }
+        }
+      }
+    }
+
+    &_color {
+      &_main {
+        color: var(--editor-main);
+      }
+    }
 
     @media screen and (max-width: 600px) {
       padding-left: var(--space-m);
@@ -112,28 +130,59 @@
   }
 
   &-Row {
+    vertical-align: top;
+
+    &_color {
+      &_added {
+        background: var(--added-backgound);
+      }
+      &_deleted {
+        background: var(--deleted-background);
+      }
+    }
   }
 
   &-Number {
-    width: 70px;
-    min-width: 18px;
-    text-align: center;
+    width: 41px;
+    text-align: right;
     color: var(--editor-number);
     padding: 0;
 
+    &_width {
+      &_s {
+        width: 35px;
+
+        @media screen and (max-width: 600px) {
+          width: 10px;
+        }
+      }
+    }
+
+    &_space-l {
+      &_touch {
+        @media screen and (max-width: 600px) {
+          padding-left: 5px;
+        }
+      }
+    }
+
     @media screen and (max-width: 600px) {
-      text-align: left;
-      width: 18px;
+      width: 10px;
     }
   }
   &-Line {
     overflow: visible;
-    //word-wrap: normal;
     text-align: left;
-    padding: 0;
+    padding: 0 0 0 var(--space-xxl);
+
+    @media screen and (max-width: 600px) {
+      padding: 0 0 0 var(--space-s);
+    }
   }
 
   &-Item {
+    display: inline-block;
+    word-break: break-word;
     &_color {
       &_link {
         color: var(--editor-link);
@@ -168,6 +217,7 @@
     @media screen and (max-width: 600px) {
       width: 100%;
       justify-content: space-between;
+      margin-top: var(--space-xs);
     }
   }
 
@@ -183,39 +233,5 @@
     font-weight: bold;
     text-transform: uppercase;
     margin-right: var(--space-s);
-  }
-
-  &-Subheader {
-    display: flex;
-    font-family: var(--editor-font);
-    font-size: var(--font-xxs);
-    line-height: var(--line-m);
-    padding: 6px var(--space-s) 0;
-
-    &_color {
-      &_ghost {
-        background: var(--background-ghost);
-        color: var(--ghost)
-      }
-    }
-  }
-
-  &-Diff {
-    width: 40%;
-
-    @media screen and (max-width: 600px) {
-      width: 100%;
-    }
-  }
-  &-Nav {
-    width: 60%;
-    display: flex;
-
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
-  }
-  &-NavItem {
-    margin-right: var(--space-xxl);
   }
 }

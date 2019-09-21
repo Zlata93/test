@@ -17,6 +17,15 @@
     &_accented {
       color: var(--accented);
     }
+    &_reserved {
+      color: var(--diff-reserved);
+    }
+    &_diff-comment {
+      color: var(--diff-comment);
+    }
+    &_diff-accented {
+      color: var(--diff-accented);
+    }
   }
 
   &_indent-r {

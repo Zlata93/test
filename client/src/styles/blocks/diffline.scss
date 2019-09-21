@@ -1,0 +1,39 @@
+.DiffLine {
+  display: flex;
+  font-family: var(--editor-font);
+  font-size: var(--font-xxs);
+  line-height: var(--line-m);
+  padding: 6px var(--space-s) 0;
+
+  &_color {
+    &_ghost {
+      background: var(--background-ghost);
+      color: var(--ghost)
+    }
+  }
+
+  &-Diff {
+    width: 40%;
+
+    @media screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
+  &-Nav {
+    width: 60%;
+    display: flex;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  &-NavItem {
+    margin-right: var(--space-xxl);
+
+    &_state {
+      &_active {
+        color: var(--primary);
+      }
+    }
+  }
+}
