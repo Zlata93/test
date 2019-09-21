@@ -9,7 +9,12 @@
 
   &-Container {
     margin: 0 var(--space-xxl);
-    flex: 1 0 auto;
+
+    &_grow {
+      &_true {
+        flex: 1 0 auto;
+      }
+    }
 
     @media screen and (max-width: 600px) {
       margin: 0 var(--space-m);
