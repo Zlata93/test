@@ -3,10 +3,26 @@
   text-decoration: none;
   font-weight: normal;
 
+  &_color {
+    &_secondary {
+      color: var(--secondary);
+    }
+  }
+
   &_hide {
     &_touch {
       @media screen and (max-width: 600px) {
         visibility: hidden;
+      }
+    }
+  }
+
+  &_hide {
+    &_desktop {
+      display: none;
+      @media screen and (max-width: 600px) {
+        display: flex;
+        align-items: center;
       }
     }
   }

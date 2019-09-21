@@ -64,8 +64,29 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './index.html',
-            filename: './index.html'
+            template: './1.5.html',
+            filename: './1.5.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './1.1.html',
+            filename: './1.1.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './1.6.html',
+            filename: './1.6.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './2.1.html',
+            filename: './2.1.html',
+            inject: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './3.1.html',
+            filename: './3.1.html',
+            inject: true
         }),
         new MiniCssExtractPlugin({
             filename: 'style.css',

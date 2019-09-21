@@ -1,22 +1,14 @@
-.button {
-  width: 200px;
-  background: var(--accented);
+.Button {
+  font-family: var(--font);
+  padding: 7px var(--space-s) 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
 
-  &_size {
-    &_s {
-      height: 24px;
-    }
-    &_m {
-      height: 32px;
-    }
-    &_l {
-      height: 42px;
-    }
-    &_xl {
-      height: 56px;
-    }
-    &_xxl {
-      height: 64px;
+  &_color {
+    &_default {
+      background: var(--plain);
+      color: var(--primary);
     }
   }
 
@@ -24,5 +16,13 @@
     &_full {
       width: 100%;
     }
+  }
+
+  &-Icon {
+    margin-right: 6px;
+  }
+
+  &-Text {
+    width: max-content;
   }
 }

@@ -4,24 +4,65 @@
   border-bottom: 1px solid var(--border-faded);
 
   &-Header {
-    font-size: var(--font-l);
-    line-height: var(--line-l);
     display: flex;
+
+    @media screen and (max-width: 600px) {
+      flex-wrap: wrap;
+    }
+
+    &_space {
+      &_between {
+        justify-content: space-between;
+      }
+    }
+
+    &_align {
+      &_baseline {
+        align-items: baseline;
+      }
+    }
   }
   &-Name {
+    font-size: var(--font-l);
+    line-height: var(--line-l);
     color: var(--primary);
     font-weight: bold;
     margin-right: var(--space-xxs);
     letter-spacing: -.3px;
+
+    &_size {
+      &_xl {
+        font-size: var(--font-xl);
+
+        @media screen and (max-width: 600px) {
+          font-size: var(--font-l);
+          order: 2;
+        }
+      }
+    }
   }
-  &-Select {}
+  &-Select {
+    font-size: var(--font-l);
+    line-height: var(--line-l);
+  }
   &-Info {
     font-size: var(--font-s);
     line-height: var(--line-m);
     color: var(--primary);
     margin: var(--space-xxs) 0 var(--space-m);
   }
-  &-Tabs {
+  &-Tabs {}
 
+  &-Action {
+    display: flex;
+    font-size: var(--font-xs);
+    line-height: var(--line-xs);
+
+    @media screen and (max-width: 600px) {
+      order: 1;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: var(--space-s);
+    }
   }
 }
