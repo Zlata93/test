@@ -6,4 +6,22 @@
       line-height: var(--line-s);
     }
   }
+
+  &_color {
+    &_purple {
+      color: var(--purple);
+    }
+    &_success {
+      color: var(--success);
+    }
+    &_accented {
+      color: var(--accented);
+    }
+  }
+
+  &_indent-r {
+    &_m {
+      margin-right: var(--space-m);
+    }
+  }
 }
