@@ -40,8 +40,6 @@
 
   --line: #f0f2f3;
   --line-darker: #e5e5e5;
-
-  //--image: url('../images/image-placeholder-inverse.svg');
 }
 
 .theme_font_default {
@@ -85,18 +83,3 @@
   --space-2x: 60px;
   --space-3x: 90px;
 }
-
-.theme_gap_small {
-  --full: var(--space-m);
-  --half: calc(var(--full) / 2);
-  --two-thirds: calc((var(--full) / 3) * 2);
-
-  @media screen and (min-width: 1144px) {
-    --full: var(--space-xxxl);
-    --half: calc(var(--full) / 2);
-    --two-thirds: calc((var(--full) / 3) * 2);
-  }
-}
-
-// На экране с размером меньше 1144px все блоки должны перестроиться один под другим.
-@media screen and (min-width: 1144px) {}

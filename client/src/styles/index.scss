@@ -1,15 +1,14 @@
 @import 'theme/theme';
 
-@import 'carcass/grid';
 @import 'carcass/layout';
 
-@import 'content/button';
-@import 'content/image';
-
+@import 'patterns/branchnav';
+@import 'patterns/editor';
 @import 'patterns/filerow';
 @import 'patterns/section';
 
 @import 'content/arrow';
+@import 'content/button';
 @import 'content/file';
 @import 'content/icon';
 @import 'content/link';
@@ -19,10 +18,8 @@
 @import 'content/triangle';
 @import 'content/user';
 
-@import 'blocks/branchnav';
 @import 'blocks/burgermenu';
 @import 'blocks/diffline';
-@import 'blocks/editor';
 @import 'blocks/footer';
 @import 'blocks/header';
 @import 'blocks/history';
