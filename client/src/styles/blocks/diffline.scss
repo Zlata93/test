@@ -29,11 +29,17 @@
   }
   &-NavItem {
     margin-right: var(--space-xxl);
+    display: flex;
+    align-items: center;
 
     &_state {
       &_active {
         color: var(--primary);
       }
     }
+  }
+
+  &-Triangle {
+    margin-right: var(--space-xxs);
   }
 }

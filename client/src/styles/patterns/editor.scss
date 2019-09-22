@@ -191,6 +191,16 @@
       }
     }
 
+    &_space-r {
+      &_m {
+        padding-right: var(--space-m);
+      }
+
+      @media screen and (max-width: 600px) {
+        padding-right: var(--space-s);
+      }
+    }
+
     &_weight {
       &_bold {
         font-weight: bold;
