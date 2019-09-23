@@ -7,16 +7,18 @@
   flex-direction: column;
 
   &-Container {
-    margin: 0 var(--space-xxl);
+    flex: 1 0 auto;
 
-    &_grow {
-      &_true {
-        flex: 1 0 auto;
+    &_indent-h {
+      &_xxl {
+        margin-left: var(--space-xxl);
+        margin-right: var(--space-xxl);
+
+        @media screen and (max-width: 600px) {
+          margin-left: var(--space-m);
+          margin-right: var(--space-m);
+        }
       }
-    }
-
-    @media screen and (max-width: 600px) {
-      margin: 0 var(--space-m);
     }
 
     &_align_center {

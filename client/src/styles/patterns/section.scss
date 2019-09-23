@@ -28,6 +28,18 @@
     }
   }
 
+  &_indent-h {
+    &_xxl {
+      margin-left: var(--space-xxl);
+      margin-right: var(--space-xxl);
+
+      @media screen and (max-width: 600px) {
+        margin-left: var(--space-m);
+        margin-right: var(--space-m);
+      }
+    }
+  }
+
   &_space-v {
     &_xxl {
       padding: var(--space-xxl) 0;

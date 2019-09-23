@@ -12,7 +12,6 @@ module.exports = {
 
     output: {
         filename: '[name].js',
-        // chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, 'build'),
     },
 
@@ -22,10 +21,7 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",
-                    // options: {
-                    //     presets: ['@babel/preset-env']
-                    // }
+                    loader: "babel-loader"
                 }
             },
             {
@@ -49,15 +45,7 @@ module.exports = {
                     loader: 'svg-url-loader',
                     options: {}
                 }
-            },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
+            }
         ]
     },
 
@@ -89,8 +77,7 @@ module.exports = {
             inject: true
         }),
         new MiniCssExtractPlugin({
-            filename: 'style.css',
-            // chunkFilename: '[id].css',
+            filename: 'style.css'
         }),
     ]
 };
