@@ -11,7 +11,7 @@
   &-Header {
     display: flex;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       flex-wrap: wrap;
     }
 
@@ -39,7 +39,7 @@
       &_xl {
         font-size: var(--font-xl);
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: $phone) {
           font-size: var(--font-l);
           order: 2;
         }
@@ -59,7 +59,7 @@
 
     &_no-space-b {
       &_touch {
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: $phone) {
           margin-bottom: 0;
         }
       }
@@ -72,7 +72,7 @@
     font-size: var(--font-xs);
     line-height: var(--line-xs);
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       order: 1;
       width: 100%;
       justify-content: space-between;

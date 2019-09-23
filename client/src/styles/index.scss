@@ -2,9 +2,9 @@
 
 @import 'carcass/layout';
 
-@import 'patterns/branchnav';
+@import 'patterns/branch-nav';
 @import 'patterns/editor';
-@import 'patterns/filerow';
+@import 'patterns/file-row';
 @import 'patterns/section';
 
 @import 'content/arrow';
@@ -18,8 +18,8 @@
 @import 'content/triangle';
 @import 'content/user';
 
-@import 'blocks/burgermenu';
-@import 'blocks/diffline';
+@import 'blocks/burger-menu';
+@import 'blocks/diff-line';
 @import 'blocks/footer';
 @import 'blocks/header';
 @import 'blocks/history';

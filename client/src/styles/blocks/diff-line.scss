@@ -15,7 +15,7 @@
   &-Diff {
     width: 40%;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       width: 100%;
     }
   }
@@ -23,7 +23,7 @@
     width: 60%;
     display: flex;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       display: none;
     }
   }

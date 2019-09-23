@@ -16,7 +16,7 @@
       margin-left: var(--space-xxl);
       margin-right: var(--space-xxl);
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: $phone) {
         border: none;
         margin-left: 0;
         margin-right: 0;
@@ -71,7 +71,7 @@
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       border-radius: 0;
       padding-top: var(--space-xxs);
       padding-bottom: 6px;
@@ -114,7 +114,7 @@
         border-collapse: collapse;
 
         & .Editor-Number {
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: $phone) {
             width: 27px;
           }
         }
@@ -127,7 +127,7 @@
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       padding-left: var(--space-m);
       padding-right: var(--space-m);
     }
@@ -156,7 +156,7 @@
       &_s {
         width: 35px;
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: $phone) {
           width: 10px;
         }
       }
@@ -164,13 +164,13 @@
 
     &_space-l {
       &_touch {
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: $phone) {
           padding-left: 5px;
         }
       }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       width: 10px;
     }
   }
@@ -179,7 +179,7 @@
     text-align: left;
     padding: 0 0 0 var(--space-xxl);
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       padding: 0 0 0 var(--space-s);
     }
   }
@@ -201,7 +201,7 @@
         padding-right: var(--space-m);
       }
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: $phone) {
         padding-right: var(--space-s);
       }
     }
@@ -228,7 +228,7 @@
   &-Info {
     display: flex;
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: $phone) {
       width: 100%;
       justify-content: space-between;
       margin-top: var(--space-xs);

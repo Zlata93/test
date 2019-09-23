@@ -61,8 +61,6 @@
   --line-s: 18px;
   --line-m: 20px;
   --line-l: 28px;
-
-  --break-phone: 600px;
 }
 
 .theme_space_default {
@@ -83,3 +81,5 @@
   --space-2x: 60px;
   --space-3x: 90px;
 }
+
+$phone: '600px';

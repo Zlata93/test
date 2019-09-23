@@ -48,7 +48,7 @@
 
         &:after {
           display: none;
-          @media screen and (max-width: 600px) {
+          @media screen and (max-width: $phone) {
             display: inline-block;
           }
         }
@@ -61,7 +61,7 @@
     &_hide {
       &_desktop {
         display: none;
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: $phone) {
           display: inline-block;
         }
       }
