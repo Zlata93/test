@@ -1,82 +1,111 @@
-.BranchNav {
-  font-family: var(--font);
-  padding: var(--space-s) 0 var(--space-xs);
+.BranchNav
+{
+    font-family: var(--font);
 
-  &_border {
-    &_bottom {
-      border-bottom: 1px solid var(--border-faded);
-    }
-  }
+    padding: var(--space-s) 0 var(--space-xs);
 
-  &-Header {
-    display: flex;
-
-    @media screen and (max-width: $phone) {
-      flex-wrap: wrap;
-    }
-
-    &_space {
-      &_between {
-        justify-content: space-between;
-      }
-    }
-
-    &_align {
-      &_baseline {
-        align-items: baseline;
-      }
-    }
-  }
-  &-Name {
-    font-size: var(--font-l);
-    line-height: var(--line-l);
-    color: var(--primary);
-    font-weight: bold;
-    margin-right: var(--space-xxs);
-    letter-spacing: -.3px;
-
-    &_size {
-      &_xl {
-        font-size: var(--font-xl);
-
-        @media screen and (max-width: $phone) {
-          font-size: var(--font-l);
-          order: 2;
+    &_border
+    {
+        &_bottom
+        {
+            border-bottom: 1px solid var(--border-faded);
         }
-      }
     }
-  }
-  &-Select {
-    font-size: var(--font-l);
-    line-height: var(--line-l);
-  }
-  &-Info {
-    font-size: var(--font-s);
-    line-height: var(--line-m);
-    color: var(--primary);
-    margin-top: var(--space-xxs);
-    margin-bottom: var(--space-m);
 
-    &_no-space-b {
-      &_touch {
-        @media screen and (max-width: $phone) {
-          margin-bottom: 0;
+    &-Header
+    {
+        display: flex;
+
+        @media screen and (max-width: $phone)
+        {
+            flex-wrap: wrap;
         }
-      }
-    }
-  }
-  &-Tabs {}
 
-  &-Action {
-    display: flex;
-    font-size: var(--font-xs);
-    line-height: var(--line-xs);
+        &_space
+        {
+            &_between
+            {
+                justify-content: space-between;
+            }
+        }
 
-    @media screen and (max-width: $phone) {
-      order: 1;
-      width: 100%;
-      justify-content: space-between;
-      margin-bottom: var(--space-s);
+        &_align
+        {
+            &_baseline
+            {
+                align-items: baseline;
+            }
+        }
     }
-  }
+    &-Name
+    {
+        font-size: var(--font-l);
+        font-weight: bold;
+        line-height: var(--line-l);
+
+        margin-right: var(--space-xxs);
+
+        letter-spacing: -.3px;
+
+        color: var(--primary);
+
+        &_size
+        {
+            &_xl
+            {
+                font-size: var(--font-xl);
+
+                @media screen and (max-width: $phone)
+                {
+                    font-size: var(--font-l);
+
+                    order: 2;
+                }
+            }
+        }
+    }
+    &-Select
+    {
+        font-size: var(--font-l);
+        line-height: var(--line-l);
+    }
+    &-Info
+    {
+        font-size: var(--font-s);
+        line-height: var(--line-m);
+
+        margin-top: var(--space-xxs);
+        margin-bottom: var(--space-m);
+
+        color: var(--primary);
+
+        &_no-space-b
+        {
+            &_touch
+            {
+                @media screen and (max-width: $phone)
+                {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+
+    &-Action
+    {
+        font-size: var(--font-xs);
+        line-height: var(--line-xs);
+
+        display: flex;
+
+        @media screen and (max-width: $phone)
+        {
+            justify-content: space-between;
+            order: 1;
+
+            width: 100%;
+            margin-bottom: var(--space-s);
+        }
+    }
 }

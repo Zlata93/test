@@ -1,70 +1,95 @@
-.History {
-  margin-top: var(--space-l);
-  font-family: var(--font);
-  font-size: var(--font-m);
-  line-height: var(--line-m);
-  position: relative;
+.History
+{
+    position: relative;
 
-  &-Title {
-    font-weight: bold;
-    color: var(--secondary);
-    margin-bottom: var(--space-m);
-  }
+    margin-top: var(--space-l);
 
-  &-Row {
-    padding: 0 0 var(--space-m) 31px;
-    margin: 0 0 0 19px;
-    border-left: 2px solid var(--ghost);
-    box-sizing: border-box;
+    font-family: var(--font);
+    font-size: var(--font-m);
+    line-height: var(--line-m);
 
-    &:last-of-type {
-      border-left: none;
-      padding-bottom: 0;
+    &-Title
+    {
+        margin-bottom: var(--space-m);
+
+        color: var(--secondary);
+
+        font-weight: bold;
     }
 
-    &:before {
-      content: '';
-      width: 40px;
-      height: 40px;
-      position: absolute;
-      left: 0;
-      background-image: url('../images/history.svg');
-    }
-  }
+    &-Row
+    {
+        box-sizing: border-box;
+        margin: 0 0 0 19px;
+        padding: 0 0 var(--space-m) 31px;
 
-  &-Link {
-    position: absolute;
-    right: 0;
-    &:after {
-      content: '';
-      width: 16px;
-      height: 16px;
-      visibility: visible;
-      background-image: url('../images/code.svg');
-    }
+        border-left: 2px solid var(--ghost);
 
-    &_hide {
-      &_desktop {
+        &:last-of-type
+        {
+            padding-bottom: 0;
 
-        &:after {
-          display: none;
-          @media screen and (max-width: $phone) {
-            display: inline-block;
-          }
+            border-left: none;
         }
-      }
-    }
-  }
 
-  &-Code {
+        &:before
+        {
+            position: absolute;
+            left: 0;
 
-    &_hide {
-      &_desktop {
-        display: none;
-        @media screen and (max-width: $phone) {
-          display: inline-block;
+            width: 40px;
+            height: 40px;
+
+            content: '';
+
+            background-image: url('../images/history.svg');
         }
-      }
     }
-  }
+
+    &-Link
+    {
+        position: absolute;
+        right: 0;
+        &:after
+        {
+            visibility: visible;
+
+            width: 16px;
+            height: 16px;
+
+            content: '';
+
+            background-image: url('../images/code.svg');
+        }
+
+        &_hide
+        {
+            &_desktop
+            {
+                &:after
+                {
+                    display: none;
+                    @media screen and (max-width: $phone)
+                    {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    &-Code
+    {
+        &_hide
+        {
+            &_desktop
+            {
+                display: none;
+                @media screen and (max-width: $phone)
+                {
+                    display: inline-block;
+                }
+            }
+        }
+    }
 }

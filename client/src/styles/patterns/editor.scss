@@ -1,251 +1,331 @@
-.Editor {
-  border-radius: 4px;
-  position: relative;
+.Editor
+{
+    position: relative;
 
-  &_border {
-    &_faded {
-      border: 1px solid var(--border-faded);
-    }
-    &_ghost {
-      border: 1px solid var(--border-ghost);
-    }
-  }
-
-  &_indent-h {
-    &_xxl {
-      margin-left: var(--space-xxl);
-      margin-right: var(--space-xxl);
-
-      @media screen and (max-width: $phone) {
-        border: none;
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-  }
-
-  &-Header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    font-family: var(--font);
-    font-size: var(--font-s);
-    line-height: var(--line-m);
     border-radius: 4px;
 
-    &_border-v {
-      &_ghost {
-        border-top: 1px solid var(--border-ghost);
-        border-bottom: 1px solid var(--border-ghost);
-      }
-    }
-
-    &_space-h {
-      &_s {
-        padding-left: var(--space-s);
-        padding-right: var(--space-s);
-      }
-      &_m {
-        padding-left: var(--space-m);
-        padding-right: var(--space-m);
-      }
-    }
-
-    &_space-v {
-      &_s {
-        padding-top: var(--space-xxs);
-        padding-bottom: 6px;
-      }
-      &_m {
-        padding-top: 13px;
-        padding-bottom: 10px;
-      }
-    }
-
-    &_color {
-      &_default {
-        background: var(--editor-header);
-      }
-      &_pale {
-        background: var(--pale);
-      }
-    }
-
-    @media screen and (max-width: $phone) {
-      border-radius: 0;
-      padding-top: var(--space-xxs);
-      padding-bottom: 6px;
-    }
-  }
-
-  &-HeaderItem {
-    display: flex;
-    align-items: center;
-  }
-
-  &-ByteCount {
-    color: var(--faded);
-    font-size: var(--font-xs);
-    line-height: var(--line-m);
-    margin-left: var(--space-xxxs);
-  }
-
-  &-Action {
-    width: 38px;
-    height: 28px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    background-image: url('../images/download.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &-Body {
-    box-sizing: border-box;
-    width: 100%;
-    font-family: var(--editor-font);
-    font-size: var(--font-xxs);
-    line-height: var(--line-m);
-    margin-top: var(--space-xxxxs);
-
-    &_border {
-      &_collapse {
-        border-collapse: collapse;
-
-        & .Editor-Number {
-          @media screen and (max-width: $phone) {
-            width: 27px;
-          }
+    &_border
+    {
+        &_faded
+        {
+            border: 1px solid var(--border-faded);
         }
-      }
-    }
-
-    &_color {
-      &_main {
-        color: var(--editor-main);
-      }
-    }
-
-    @media screen and (max-width: $phone) {
-      padding-left: var(--space-m);
-      padding-right: var(--space-m);
-    }
-  }
-
-  &-Row {
-    vertical-align: top;
-
-    &_color {
-      &_added {
-        background: var(--added-backgound);
-      }
-      &_deleted {
-        background: var(--deleted-background);
-      }
-    }
-  }
-
-  &-Number {
-    width: 41px;
-    text-align: right;
-    color: var(--editor-number);
-    padding: 0;
-
-    &_width {
-      &_s {
-        width: 35px;
-
-        @media screen and (max-width: $phone) {
-          width: 10px;
+        &_ghost
+        {
+            border: 1px solid var(--border-ghost);
         }
-      }
     }
 
-    &_space-l {
-      &_touch {
-        @media screen and (max-width: $phone) {
-          padding-left: 5px;
+    &_indent-h
+    {
+        &_xxl
+        {
+            margin-right: var(--space-xxl);
+            margin-left: var(--space-xxl);
+
+            @media screen and (max-width: $phone)
+            {
+                margin-right: 0;
+                margin-left: 0;
+
+                border: none;
+            }
         }
-      }
     }
 
-    @media screen and (max-width: $phone) {
-      width: 10px;
+    &-Header
+    {
+        font-family: var(--font);
+        font-size: var(--font-s);
+        line-height: var(--line-m);
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        border-radius: 4px;
+
+        &_border-v
+        {
+            &_ghost
+            {
+                border-top: 1px solid var(--border-ghost);
+                border-bottom: 1px solid var(--border-ghost);
+            }
+        }
+
+        &_space-h
+        {
+            &_s
+            {
+                padding-right: var(--space-s);
+                padding-left: var(--space-s);
+            }
+            &_m
+            {
+                padding-right: var(--space-m);
+                padding-left: var(--space-m);
+            }
+        }
+
+        &_space-v
+        {
+            &_s
+            {
+                padding-top: var(--space-xxs);
+                padding-bottom: 6px;
+            }
+            &_m
+            {
+                padding-top: 13px;
+                padding-bottom: 10px;
+            }
+        }
+
+        &_color
+        {
+            &_default
+            {
+                background: var(--editor-header);
+            }
+            &_pale
+            {
+                background: var(--pale);
+            }
+        }
+
+        @media screen and (max-width: $phone)
+        {
+            padding-top: var(--space-xxs);
+            padding-bottom: 6px;
+
+            border-radius: 0;
+        }
     }
-  }
-  &-Line {
-    overflow: visible;
-    text-align: left;
-    padding: 0 0 0 var(--space-xxl);
 
-    @media screen and (max-width: $phone) {
-      padding: 0 0 0 var(--space-s);
-    }
-  }
-
-  &-Item {
-    display: inline-block;
-    word-break: break-word;
-    &_color {
-      &_link {
-        color: var(--editor-link);
-      }
-      &_comment {
-        color: var(--tertiary);
-      }
+    &-HeaderItem
+    {
+        display: flex;
+        align-items: center;
     }
 
-    &_space-r {
-      &_m {
-        padding-right: var(--space-m);
-      }
+    &-ByteCount
+    {
+        font-size: var(--font-xs);
+        line-height: var(--line-m);
 
-      @media screen and (max-width: $phone) {
-        padding-right: var(--space-s);
-      }
+        margin-left: var(--space-xxxs);
+
+        color: var(--faded);
     }
 
-    &_weight {
-      &_bold {
+    &-Action
+    {
+        box-sizing: border-box;
+        width: 38px;
+        height: 28px;
+
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background-image: url('../images/download.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    &-Body
+    {
+        font-family: var(--editor-font);
+        font-size: var(--font-xxs);
+        line-height: var(--line-m);
+
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: var(--space-xxxxs);
+
+        &_border
+        {
+            &_collapse
+            {
+                border-collapse: collapse;
+
+                & .Editor-Number
+                {
+                    @media screen and (max-width: $phone)
+                    {
+                        width: 27px;
+                    }
+                }
+            }
+        }
+
+        &_color
+        {
+            &_main
+            {
+                color: var(--editor-main);
+            }
+        }
+
+        @media screen and (max-width: $phone)
+        {
+            padding-right: var(--space-m);
+            padding-left: var(--space-m);
+        }
+    }
+
+    &-Row
+    {
+        vertical-align: top;
+
+        &_color
+        {
+            &_added
+            {
+                background: var(--added-backgound);
+            }
+            &_deleted
+            {
+                background: var(--deleted-background);
+            }
+        }
+    }
+
+    &-Number
+    {
+        width: 41px;
+        padding: 0;
+
+        text-align: right;
+
+        color: var(--editor-number);
+
+        &_width
+        {
+            &_s
+            {
+                width: 35px;
+
+                @media screen and (max-width: $phone)
+                {
+                    width: 10px;
+                }
+            }
+        }
+
+        &_space-l
+        {
+            &_touch
+            {
+                @media screen and (max-width: $phone)
+                {
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        @media screen and (max-width: $phone)
+        {
+            width: 10px;
+        }
+    }
+    &-Line
+    {
+        overflow: visible;
+
+        padding: 0 0 0 var(--space-xxl);
+
+        text-align: left;
+
+        @media screen and (max-width: $phone)
+        {
+            padding: 0 0 0 var(--space-s);
+        }
+    }
+
+    &-Item
+    {
+        display: inline-block;
+
+        word-break: break-word;
+        &_color
+        {
+            &_link
+            {
+                color: var(--editor-link);
+            }
+            &_comment
+            {
+                color: var(--tertiary);
+            }
+        }
+
+        &_space-r
+        {
+            &_m
+            {
+                padding-right: var(--space-m);
+            }
+
+            @media screen and (max-width: $phone)
+            {
+                padding-right: var(--space-s);
+            }
+        }
+
+        &_weight
+        {
+            &_bold
+            {
+                font-weight: bold;
+            }
+        }
+
+        &_indent-l
+        {
+            &_1x
+            {
+                margin-left: var(--space-1x);
+            }
+            &_2x
+            {
+                margin-left: var(--space-2x);
+            }
+            &_3x
+            {
+                margin-left: var(--space-3x);
+            }
+        }
+    }
+
+    &-Info
+    {
+        display: flex;
+
+        @media screen and (max-width: $phone)
+        {
+            justify-content: space-between;
+
+            width: 100%;
+            margin-top: var(--space-xs);
+        }
+    }
+
+    &-InfoItem
+    {
+        margin-right: var(--space-m);
+
+        &:last-of-type
+        {
+            margin-right: 0;
+        }
+    }
+
+    &-M
+    {
         font-weight: bold;
-      }
+
+        margin-right: var(--space-s);
+
+        text-transform: uppercase;
     }
-
-    &_indent-l {
-      &_1x {
-        margin-left: var(--space-1x);
-      }
-      &_2x {
-        margin-left: var(--space-2x);
-      }
-      &_3x {
-        margin-left: var(--space-3x);
-      }
-    }
-  }
-
-  &-Info {
-    display: flex;
-
-    @media screen and (max-width: $phone) {
-      width: 100%;
-      justify-content: space-between;
-      margin-top: var(--space-xs);
-    }
-  }
-
-  &-InfoItem {
-    margin-right: var(--space-m);
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
-
-  &-M {
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-right: var(--space-s);
-  }
 }

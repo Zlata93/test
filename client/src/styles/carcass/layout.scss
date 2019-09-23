@@ -1,57 +1,75 @@
-.Layout {
-  margin: 0;
-  background: var(--default);
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.Layout
+{
+    position: relative;
 
-  &-Container {
-    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 
-    &_indent-h {
-      &_xxl {
-        margin-left: var(--space-xxl);
-        margin-right: var(--space-xxl);
+    min-height: 100vh;
+    margin: 0;
 
-        @media screen and (max-width: $phone) {
-          margin-left: var(--space-m);
-          margin-right: var(--space-m);
+    background: var(--default);
+
+    &-Container
+    {
+        flex: 1 0 auto;
+
+        &_indent-h
+        {
+            &_xxl
+            {
+                margin-right: var(--space-xxl);
+                margin-left: var(--space-xxl);
+
+                @media screen and (max-width: $phone)
+                {
+                    margin-right: var(--space-m);
+                    margin-left: var(--space-m);
+                }
+            }
         }
-      }
+
+        &_align_center
+        {
+            margin: 0 auto;
+        }
+
+        &_size
+        {
+            &_s
+            {
+                max-width: 880px;
+            }
+            &_m
+            {
+                max-width: 1144px;
+            }
+        }
+
+        &_space-v
+        {
+            &_xxxxl
+            {
+                padding: var(--space-xxxxl) 0;
+            }
+
+            &_xxxxxl
+            {
+                padding: var(--space-xxxxxl) 0;
+            }
+        }
+
+        &_indent-b
+        {
+            &_xxl
+            {
+                margin-bottom: var(--space-xxl);
+            }
+
+            &__xxxxl
+            {
+                margin-bottom: var(--space-xxxxl);
+            }
+        }
     }
-
-    &_align_center {
-      margin: 0 auto;
-    }
-
-    &_size {
-      &_s {
-        max-width: 880px;
-      }
-      &_m {
-        max-width: 1144px;
-      }
-    }
-
-    &_space-v {
-      &_xxxxl {
-        padding: var(--space-xxxxl) 0;
-      }
-
-      &_xxxxxl {
-        padding: var(--space-xxxxxl) 0;
-      }
-    }
-
-    &_indent-b {
-      &_xxl {
-        margin-bottom: var(--space-xxl);
-      }
-
-      &__xxxxl {
-        margin-bottom: var(--space-xxxxl);
-      }
-    }
-  }
 }

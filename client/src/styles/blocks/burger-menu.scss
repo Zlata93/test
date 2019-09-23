@@ -1,15 +1,21 @@
-.BurgerMenu {
-  &-Item {
-    display: block;
-    width: 12px;
-    height: 2px;
-    margin-bottom: var(--space-xxxxs);
-    position: relative;
-    background: var(--primary);
-    border-radius: 3px;
+.BurgerMenu
+{
+    &-Item
+    {
+        position: relative;
 
-    &:last-of-type {
-      margin-bottom: 0;
+        display: block;
+
+        width: 12px;
+        height: 2px;
+        margin-bottom: var(--space-xxxxs);
+
+        border-radius: 3px;
+        background: var(--primary);
+
+        &:last-of-type
+        {
+            margin-bottom: 0;
+        }
     }
-  }
 }

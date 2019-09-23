@@ -1,24 +1,29 @@
-.Triangle {
-  width: 0;
-  height: 0;
-  border-radius: 5px;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
+.Triangle
+{
+    width: 0;
+    height: 0;
 
-  &_state {
-    &_up {
-      border-bottom: 4px solid var(--primary);
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-radius: 5px;
+
+    &_state
+    {
+        &_up
+        {
+            border-bottom: 4px solid var(--primary);
+        }
+        &_down
+        {
+            border-top: 4px solid var(--ghost);
+        }
     }
-    &_down {
-      border-top: 4px solid var(--ghost);
-    }
-  }
-  //&_color {
-  //  &_primary {
-  //    border-color: var(--primary);
-  //  }
-  //  &_ghost {
-  //    border-color: var(--ghost);
-  //  }
-  //}
+    //&_color {
+    //  &_primary {
+    //    border-color: var(--primary);
+    //  }
+    //  &_ghost {
+    //    border-color: var(--ghost);
+    //  }
+    //}
 }

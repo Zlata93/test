@@ -1,29 +1,40 @@
-.Link {
-  color: var(--link-2);
-  text-decoration: none;
-  font-weight: normal;
+.Link
+{
+    font-weight: normal;
 
-  &_color {
-    &_secondary {
-      color: var(--secondary);
-    }
-  }
+    text-decoration: none;
 
-  &_hide {
-    &_touch {
-      @media screen and (max-width: $phone) {
-        visibility: hidden;
-      }
-    }
-  }
+    color: var(--link-2);
 
-  &_hide {
-    &_desktop {
-      display: none;
-      @media screen and (max-width: $phone) {
-        display: flex;
-        align-items: center;
-      }
+    &_color
+    {
+        &_secondary
+        {
+            color: var(--secondary);
+        }
     }
-  }
+
+    &_hide
+    {
+        &_touch
+        {
+            @media screen and (max-width: $phone)
+            {
+                visibility: hidden;
+            }
+        }
+    }
+
+    &_hide
+    {
+        &_desktop
+        {
+            display: none;
+            @media screen and (max-width: $phone)
+            {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
 }

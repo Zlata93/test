@@ -1,32 +1,42 @@
-.Icon {
-  display: inline-block;
-  background-position: center;
-  background-repeat: no-repeat;
+.Icon
+{
+    display: inline-block;
 
-  &_type {
-    &_arrow-up {
-      background-image: url('../images/arrow_up.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &_type
+    {
+        &_arrow-up
+        {
+            background-image: url('../images/arrow_up.svg');
+        }
+
+        &_code
+        {
+            background-image: url('../images/code_file_grey.svg');
+        }
     }
 
-    &_code {
-      background-image: url('../images/code_file_grey.svg');
+    &_size
+    {
+        &_xs
+        {
+            width: 12px;
+            height: 12px;
+        }
+        &_s
+        {
+            width: 13px;
+            height: 20px;
+        }
     }
-  }
 
-  &_size {
-    &_xs {
-      width: 12px;
-      height: 12px;
+    &_indent-r
+    {
+        &_xxs
+        {
+            margin-right: var(--space-xxs);
+        }
     }
-    &_s {
-      width: 13px;
-      height: 20px;
-    }
-  }
-
-  &_indent-r {
-    &_xxs {
-      margin-right: var(--space-xxs);
-    }
-  }
 }

@@ -1,61 +1,79 @@
-.FileRow {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  color: var(--primary);
-  font-family: var(--font);
-  font-size: var(--font-s);
-  line-height: var(--line-m);
+.FileRow
+{
+    font-family: var(--font);
+    font-size: var(--font-s);
+    line-height: var(--line-m);
 
-  &_border {
-    &_bottom {
-      border-bottom: 1px solid var(--border-faded);
-    }
-  }
+    position: relative;
 
-  &_padding {
-    &_both {
-      padding: var(--space-s) 0;
-    }
-  }
+    display: flex;
+    flex-direction: column;
 
-  &_hide {
-    &_desktop {
-      display: none;
-      @media screen and (max-width: $phone) {
-        display: flex;
-      }
-    }
-  }
+    color: var(--primary);
 
-  &-Item {
-
-    &_padding {
-      &_both {
-        padding: var(--space-xxxs) 0;
-      }
+    &_border
+    {
+        &_bottom
+        {
+            border-bottom: 1px solid var(--border-faded);
+        }
     }
 
-    &_display {
-      &_flex {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
+    &_padding
+    {
+        &_both
+        {
+            padding: var(--space-s) 0;
+        }
     }
-  }
 
-  &-Message {
-    margin-right: var(--space-xs);
-  }
+    &_hide
+    {
+        &_desktop
+        {
+            display: none;
+            @media screen and (max-width: $phone)
+            {
+                display: flex;
+            }
+        }
+    }
 
-  &-Arrow {
-    position: absolute;
-    top: 45%;
-    right: 0;
-  }
+    &-Item
+    {
+        &_padding
+        {
+            &_both
+            {
+                padding: var(--space-xxxs) 0;
+            }
+        }
 
-  &-Title {
-    font-weight: bold;
-  }
+        &_display
+        {
+            &_flex
+            {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &-Message
+    {
+        margin-right: var(--space-xs);
+    }
+
+    &-Arrow
+    {
+        position: absolute;
+        top: 45%;
+        right: 0;
+    }
+
+    &-Title
+    {
+        font-weight: bold;
+    }
 }

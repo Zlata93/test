@@ -1,44 +1,56 @@
-.Select {
-  font-size: var(--font-s);
-  position: relative;
+.Select
+{
+    position: relative;
 
-  &-Name {
+    font-size: var(--font-s);
 
-    &_weight_bold {
-      font-weight: bold;
-    }
-    &_color {
-      &_secondary {
-        color: var(--secondary);
-      }
-    }
-  }
-
-  &-Arrow {
-    position: absolute;
-
-    &_position {
-      &_center {
-        right: -15px;
-        top: 6px;
-      }
-      &_baseline {
-        right: -15px;
-        top: 10px;
-      }
+    &-Name
+    {
+        &_weight_bold
+        {
+            font-weight: bold;
+        }
+        &_color
+        {
+            &_secondary
+            {
+                color: var(--secondary);
+            }
+        }
     }
 
-  }
+    &-Arrow
+    {
+        position: absolute;
 
-  &_size {
-    &_small {
-      font-size: var(--font-s);
-      line-height: var(--line-s);
-      letter-spacing: -.3px;
+        &_position
+        {
+            &_center
+            {
+                top: 6px;
+                right: -15px;
+            }
+            &_baseline
+            {
+                top: 10px;
+                right: -15px;
+            }
+        }
     }
-    &_big {
-      font-size: var(--font-l);
-      line-height: var(--line-l);
+
+    &_size
+    {
+        &_small
+        {
+            letter-spacing: -.3px;
+
+            font-size: var(--font-s);
+            line-height: var(--line-s);
+        }
+        &_big
+        {
+            font-size: var(--font-l);
+            line-height: var(--line-l);
+        }
     }
-  }
 }

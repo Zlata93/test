@@ -1,8 +1,11 @@
-.User {
-  display: inline-block;
-  color: var(--primary);
+.User
+{
+    display: inline-block;
 
-  &::first-letter {
-    color: var(--accented);
-  }
+    color: var(--primary);
+
+    &::first-letter
+    {
+        color: var(--accented);
+    }
 }

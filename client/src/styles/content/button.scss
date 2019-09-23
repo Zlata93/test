@@ -1,28 +1,38 @@
-.Button {
-  font-family: var(--font);
-  padding: 7px var(--space-s) 6px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
+.Button
+{
+    font-family: var(--font);
 
-  &_color {
-    &_default {
-      background: var(--plain);
-      color: var(--primary);
+    display: flex;
+    align-items: center;
+
+    padding: 7px var(--space-s) 6px;
+
+    border-radius: 4px;
+
+    &_color
+    {
+        &_default
+        {
+            color: var(--primary);
+            background: var(--plain);
+        }
     }
-  }
 
-  &_width {
-    &_full {
-      width: 100%;
+    &_width
+    {
+        &_full
+        {
+            width: 100%;
+        }
     }
-  }
 
-  &-Icon {
-    margin-right: 6px;
-  }
+    &-Icon
+    {
+        margin-right: 6px;
+    }
 
-  &-Text {
-    width: max-content;
-  }
+    &-Text
+    {
+        width: max-content;
+    }
 }

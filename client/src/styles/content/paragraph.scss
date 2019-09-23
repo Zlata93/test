@@ -1,7 +1,10 @@
-.Paragraph {
-  margin: 0;
-  display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+.Paragraph
+{
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

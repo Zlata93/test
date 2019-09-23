@@ -1,69 +1,87 @@
-.Table {
-  width: 100%;
-  font-family: var(--font);
-  font-size: var(--font-s);
-  line-height: var(--line-m);
-  color: var(--primary);
-  box-sizing: border-box;
-  border-collapse: collapse;
+.Table
+{
+    box-sizing: border-box;
+    width: 100%;
 
-  &_hide {
-    &_touch {
-      @media screen and (max-width: $phone) {
-        display: none;
-      }
-    }
-  }
+    color: var(--primary);
+    border-collapse: collapse;
 
-  &-Head {
-    font-weight: normal;
-  }
+    font-family: var(--font);
+    font-size: var(--font-s);
+    line-height: var(--line-m);
 
-  &-Body {
-
-  }
-
-  &-Row {
-    border-bottom: 1px solid var(--border-faded);
-  }
-
-  &-Cell {
-    padding: var(--space-m) 0 var(--space-s);
-    text-align: left;
-    font-weight: normal;
-
-    &:nth-of-type(1) {
-      width: 16%;
+    &_hide
+    {
+        &_touch
+        {
+            @media screen and (max-width: $phone)
+            {
+                display: none;
+            }
+        }
     }
 
-    &:nth-of-type(2) {
-      width: 17%;
+    &-Head
+    {
+        font-weight: normal;
     }
 
-    &:nth-of-type(3) {
-      width: 31%;
+
+
+    &-Row
+    {
+        border-bottom: 1px solid var(--border-faded);
     }
 
-    &:nth-of-type(4) {
-      width: 10%;
-    }
+    &-Cell
+    {
+        padding: var(--space-m) 0 var(--space-s);
 
-    &:nth-of-type(5) {
-      width: 15%;
-    }
+        text-align: left;
 
-    &:last-child {
-      text-align: right;
-    }
+        font-weight: normal;
 
-    &_type {
-      &_head {
-        color: var(--ghost);
-      }
-    }
+        &:nth-of-type(1)
+        {
+            width: 16%;
+        }
 
-    &_weight_bold {
-      font-weight: bold;
+        &:nth-of-type(2)
+        {
+            width: 17%;
+        }
+
+        &:nth-of-type(3)
+        {
+            width: 31%;
+        }
+
+        &:nth-of-type(4)
+        {
+            width: 10%;
+        }
+
+        &:nth-of-type(5)
+        {
+            width: 15%;
+        }
+
+        &:last-child
+        {
+            text-align: right;
+        }
+
+        &_type
+        {
+            &_head
+            {
+                color: var(--ghost);
+            }
+        }
+
+        &_weight_bold
+        {
+            font-weight: bold;
+        }
     }
-  }
 }
