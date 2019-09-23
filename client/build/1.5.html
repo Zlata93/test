@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
+    <title>Index</title>
+<link href="style.css" rel="stylesheet"></head>
+<body class="Layout theme_space_default theme_size_default theme_color_project-default theme_gap_small theme_font_default">
+<header class="Header">
+    <div class="Logo Header-Logo"></div>
+    <div class="Select Header-Select Select_size_small">
+        <span class="Select-Name Select-Name_weight_bold">Repository</span> Arc
+        <i class="Select-Arrow Select-Arrow_position_center Arrow Arrow_state_down"></i>
+    </div>
+</header>
+<div class="Section_indent-h_xxl">
+    <div class="Subheader">
+        <nav class="Subheader-Nav">
+            <ul class="Nav">
+                <li class="Nav-Item">root</li>
+                <li class="Nav-Item">trunk</li>
+                <li class="Nav-Item">arcadia</li>
+                <li class="Nav-Item">addapter</li>
+                <li class="Nav-Item Nav-Item_state_active">ya.make</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="BranchNav BranchNav_border_bottom">
+        <div class="BranchNav-Header">
+            <div class="BranchNav-Name">ya.make</div>
+            <div class="BranchNav-Select Select Select_size_big">
+                <span class="Select-Name Select-Name_color_secondary">trunk</span>
+                <i class="Select-Arrow Select-Arrow_position_baseline Arrow Arrow_state_down Arrow_color_secondary"></i>
+            </div>
+        </div>
+        <div class="BranchNav-Info">
+            Last commit <a href="#" class="Link">c4d248</a> on <a href="#" class="Link">20 Oct 2017, 12:24</a> by <span class="User">robot-srch-releaser</span>
+        </div>
+        <div class="BranchNav-Tabs Tabs">
+            <div class="Tabs-Item Tabs-Item_state_active">details</div>
+            <div class="Tabs-Item">history</div>
+        </div>
+    </div>
+</div>
+
+<div class="Layout-Container">
+    <div class="Section_indent-t_m Section_indent-b_m Editor Editor_border_faded Editor_indent-h_xxl">
+        <div class="Editor-Header Editor-Header_color_default Editor-Header_space-h_m Editor-Header_space-v_s">
+            <div class="Editor-HeaderItem">
+                <span class="File">
+                    <div class="File-Icon File-Icon_type_code"></div>
+                    ya.make
+                </span>
+                <span class="Editor-ByteCount">(4 347 bytes)</span>
+            </div>
+            <div class="Editor-HeaderItem">
+                <div class="Editor-Action"></div>
+            </div>
+        </div>
+        <table class="Editor-Body Editor-Body_color_main">
+            <tr class="Editor-Row">
+                <td class="Editor-Number">1</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_color_comment">#!/usr/bin/env python</span>
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">2</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">import</span> os
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">3</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">import</span> sys
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">4</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">import</span> platform
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">5</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">import</span> json
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">6</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">7</td>
+                <td class="Editor-Line">
+                    URLS = [<span class="Editor-Item Editor-Item_color_link">'https://proxy.sandbox.yandex-team.ru/453818264'</span>
+                    , <span class="Editor-Item Editor-Item_color_link">'http://storage-int.mds.yandex.net/get-sandbox/110738/by_platform.json.453815347'</span>]
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">8</td>
+                <td class="Editor-Line">
+                    MD5 = <span class="Editor-Item Editor-Item_color_link">'7f5a85f9c28d35c3a76d8cea7af51106'</span>
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">9</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">10</td>
+                <td class="Editor-Line">RETRIES = 5</td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">11</td>
+                <td class="Editor-Line">HASH_PREFIX = 10</td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">12</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">13</td>
+                <td class="Editor-Line">HOME_DIR = os.path.expanduser('~')</td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">14</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">15</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">16</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">def </span>
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_color_link">create_dirs</span>(path):
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">17</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_indent-l_1x">try:</span>
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">18</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_indent-l_2x">os.makedirs(path)</span>
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">19</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_indent-l_1x">except</span> OSError
+                    <span class="Editor-Item Editor-Item_weight_bold">as</span> e:
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">20</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_indent-l_2x Editor-Item_weight_bold">import</span> errno
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">21</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">22</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_indent-l_2x Editor-Item_weight_bold">if</span> e.errno != errno.EEXIST:
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">23</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_indent-l_3x Editor-Item_weight_bold">raise</span>
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">24</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">25</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_indent-l_1x">return</span> path
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">26</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">27</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">28</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold">def </span>
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_color_link">misc_root</span>():
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">29</td>
+                <td class="Editor-Line">
+                    <span class="Editor-Item Editor-Item_weight_bold Editor-Item_indent-l_1x">return</span> create_dirs(os.getenv(
+                    <span class="Editor-Item Editor-Item_color_link">'YA_CACHE_DIR'</span>
+                    ) <span class="Editor-Item Editor-Item_weight_bold">or</span> os.path.join(HOME_DIR
+                    , <span class="Editor-Item Editor-Item_color_link">'.ya'</span>))
+                </td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">30</td>
+                <td class="Editor-Line"></td>
+            </tr>
+            <tr class="Editor-Row">
+                <td class="Editor-Number">31</td>
+                <td class="Editor-Line"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<footer class="Footer">
+    <div class="Footer-Caption Footer-Item">
+        Trade secrets of Yandex LLC. 16, Lev Tolstoy Str.,Moscow, Russia, 119021
+    </div>
+    <div class="Footer-Item">
+        <div class="Footer-Version">UI: 0.1.15</div>
+        <div class="Footer-Copuright">
+            © 2007—2019 <a href="https://www.yandex.ru" target="_blank" class="Link">Yandex</a>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="script.js"></script></body>
+</html>
